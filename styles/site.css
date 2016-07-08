@@ -101,7 +101,7 @@
 	li.nav-opt:focus,
 	li.nav-opt:active,
 	li.nav-opt:target {
-		transition: 0.3s;
+		transition: 0.2s;
 		cursor: pointer;
 		color: #925eff;
 	}
