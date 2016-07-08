@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="dm">
+<head>
+	<!-- Script imports -->
+	<script type="text/javascript" src="scripts/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="scripts/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/site.js"></script>
+	<script type="text/javascript" src="scripts/transitions.js"></script>
+
+	<!-- Style imports -->
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/site.css">
+	<link rel="stylesheet" type="text/css" href="styles/font-awesome-4.6.3/css/font-awesome.min.css">
+
+	<title>Unicorn Rampage!</title>
+</head>
+<body>
+
+	<!-- Nav bar start -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav">
+					<li class="nav-logo">[logo here]</li>
+				</ul>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-opt"><i class="fa fa-bars"></i></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- Nav bar end -->
+
+	
+	<!-- Home import -->
+	<div id="home" ng-include="'views/layouts/home.html'" class="container"></div>
+	
+	<!-- Create import -->
+	<div id="create" ng-include="'views/layouts/create.html'" class="container"></div>
+	
+	<!-- Play import -->
+	<div id="play" ng-include="'views/layouts/play.html'" class="container"></div>
+		
+		
+
+</body>
+</html>
