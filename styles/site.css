@@ -1,1 +1,107 @@
-/* placeholder */
+
+/* Imports */
+	@import url("https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic");
+	@import url("https://fonts.googleapis.com/css?family=Oswald:400,300,700");
+
+
+
+
+
+/* General styles */
+
+	body {
+		background-color: #000;
+		font-family: "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 16px;
+	}
+
+	.accented {
+		color: #b591ff;
+	}
+
+	.btn-default {
+		color: #fff;
+		font-weight: 700;
+		background-color: #b591ff;
+		border-color: #9966ff;
+	}
+
+	.btn-default:active,
+	.btn-default:focus,
+	.btn-default:hover,
+	.btn-default:target {
+		background-color: #9966ff !important;
+		border-color: #925eff !important;
+		outline: none !important;
+		color: #fff !important;
+		transition: 0.4s;
+	}
+
+	.btn-default + .btn-default {
+		margin-left: 15px;
+	}
+
+
+
+
+
+/* Jumbotron styles */
+
+	.jumbotron {
+		margin-top: 75px;
+		text-align: center;
+		background-color: transparent;
+	}
+
+	.jumbotron h1 {
+		color: #fff;
+		font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 72px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0;
+	}
+
+	.jumbotron p.header-caption {
+		color: #fff;
+		font-size: 16px;
+		font-style: italic;
+	}
+
+	.jumbotron .btn-default {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+
+
+
+
+/* Nav bar styles */
+
+	.navbar {
+		background-color: transparent;
+		border-bottom-color: #272727;
+		color: #fff;
+	}
+
+	li.nav-logo {
+		padding-top: 15px;
+	}
+
+	li.nav-opt {
+		float: right;
+		padding-top: 5px;
+		font-size: 32px;
+	}
+
+	li.nav-opt:hover,
+	li.nav-opt:focus,
+	li.nav-opt:active,
+	li.nav-opt:target {
+		transition: 0.2s;
+		cursor: pointer;
+		color: #925eff;
+	}
