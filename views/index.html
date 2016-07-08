@@ -5,11 +5,11 @@
 	<script type="text/javascript" src="../scripts/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src="../scripts/angular.min.js"></script>
 	<script type="text/javascript" src="../scripts/site.js"></script>
-	<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
 
 	<!-- Style imports -->
 	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../styles/site.css">
+	<link rel="stylesheet" type="text/css" href="../styles/font-awesome-4.6.3/css/font-awesome.min.css">
 
 	<title>Unicorn Rampage!</title>
 </head>
@@ -19,25 +19,30 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+				<ul class="nav navbar-nav">
+					<li class="nav-logo">[logo here]</li>
+				</ul>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-opt"><i class="fa fa-bars"></i></li>
+				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- Nav bar end -->
+
+	<!-- Jumbotron start -->
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Welcome to Unicorn Rampage</h1>
-			<p>Select a pre-made campaign or Create a new one!</p>
+			<h1><span class="accented">Unicorn</span> Rampage</h1>
+			<p class="header-caption">The modern day dungeon master helpmate</p>
 
-			<button class="btn btn-default" type="button">Create!</button>
-			<button class="btn btn-default" type="button">Run!</button>
+			<button class="btn btn-default" type="button">Create</button>
+			<button class="btn btn-default" type="button">Play</button>
 		</div>
 	</div>
+	<!-- Jumbotron end -->
 
 </body>
 </html>
