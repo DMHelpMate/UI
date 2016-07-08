@@ -1,1 +1,40 @@
-/* placeholder */
+/* General styles */
+
+	body {
+		background-color: black;
+	}
+
+	h1, h2, h3, h4, h5 {
+		color: #fff;
+	}
+
+	p {
+		color: #fff;
+	}
+
+
+
+
+
+/* Nav bar styles */
+
+	.navbar {
+		background-color: transparent;
+	}
+
+	.btn-default {
+		background-color: #b591ff;
+		border-color: #9966ff;
+	}
+
+
+
+
+
+/* Jumbotron styles */
+
+	.jumbotron {
+		margin-top: 75px;
+		text-align: center;
+		background-color: transparent;
+	}
