@@ -2,15 +2,17 @@
 <html ng-app="dm">
 <head>
 	<!-- Script imports -->
-	<script type="text/javascript" src="scripts/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" src="scripts/angular.min.js"></script>
-	<script type="text/javascript" src="scripts/site.js"></script>
-	<script type="text/javascript" src="scripts/transitions.js"></script>
+	<script type="text/javascript" src="scripts/imports/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="scripts/imports/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/imports/angular-route.min.js"></script>
+	<script type="text/javascript" src="scripts/design/transitions.js"></script>
 
 	<!-- Style imports -->
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/site.css">
-	<link rel="stylesheet" type="text/css" href="styles/font-awesome-4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/imports/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<link rel="stylesheet" type="text/css" href="styles/home.css">
+	<link rel="stylesheet" type="text/css" href="styles/imports/font-awesome-4.6.3/css/font-awesome.min.css">
 
 	<title>Unicorn Rampage!</title>
 </head>
@@ -34,16 +36,10 @@
 	<!-- Nav bar end -->
 
 	
-	<!-- Home import -->
-	<div id="home" ng-include="'views/layouts/home.html'" class="container"></div>
-	
-	<!-- Create import -->
-	<div id="create" ng-include="'views/layouts/create.html'" class="container"></div>
-	
-	<!-- Play import -->
-	<div id="play" ng-include="'views/layouts/play.html'" class="container"></div>
-		
-		
+	<!-- Template import start -->
+	<!-- TODO: proper template swapping through routing -->
+	<div id="template" class="container" ng-include="'views/pages/home.html'"></div>		
+	<!-- Template import end -->
 
 </body>
 </html>

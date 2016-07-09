@@ -1,0 +1,30 @@
+
+/* Jumbotron styles */
+
+	.jumbotron {
+		margin-top: 75px;
+		text-align: center;
+		background-color: transparent;
+	}
+
+	.jumbotron h1 {
+		color: #fff;
+		font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 72px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0;
+	}
+
+	.jumbotron p.header-caption {
+		color: #fff;
+		font-size: 16px;
+		font-style: italic;
+	}
+
+	.jumbotron .btn-default {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
