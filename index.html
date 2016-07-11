@@ -28,7 +28,7 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="nav-opt"><i class="fa fa-bars"></i></li>
+					<li role="menu" class="nav-opt"><i class="fa fa-bars"></i></li>
 				</ul>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 	
 	<!-- Template import start -->
 	<!-- TODO: proper template swapping through routing -->
-	<div id="template" class="container" ng-include="'views/pages/home.html'"></div>		
+	<div class="container"><div ng-view></div></div>		
 	<!-- Template import end -->
 
 </body>
