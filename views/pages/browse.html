@@ -1,0 +1,48 @@
+<div id="main-browse-container" class="container">
+	<h1>Choose a campaign</h1>
+	
+	<h2>My campaigns</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Author</th>
+				<th>Theme</th>
+				<th>Description</th>
+				<th>Tags</th>
+				<th>Play</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{myCamps.Name}}</td>
+				<td>{{myCamps.Author}}</td>
+				<td>{{myCamps.Theme}}</td>
+				<td>{{myCamps.Description}}</td>
+				<td>{{myCamps.Tags}}</td>
+				<td><button class="btn btn-default">Play</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<h2>Community campaigns</h2>
+	<table class="table">
+		<thead>
+			<th>Name</th>
+			<th>Author</th>
+			<th>Theme</th>
+			<th>Description</th>
+			<th>Tags</th>
+			<th>Play</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{theirCamps.Name}}</td>
+				<td>{{theirCamps.Author}}</td>
+				<td>{{theirCamps.Theme}}</td>
+				<td>{{theirCamps.Description}}</td>
+				<td>{{theirCamps.Tags}}</td>
+				<td><button class="btn btn-default">Play</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
