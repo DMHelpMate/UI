@@ -1,7 +1,7 @@
 angular.module('dm')
 .controller('BrowseController', ['$http', '$scope', function($http, $scope) {
-	$scope.hello = 'Hello';
 
+	//Get user's campaigns
 	$http({
 		method: 'GET',
 		url: '../../campaigns/local/campaign1.json'
@@ -11,6 +11,7 @@ angular.module('dm')
 		console.log(err);
 	});
 
+	//Get community's campaigns
 	$http({
 		method: 'GET',
 		url: '../../campaigns/community/campaign2.json'

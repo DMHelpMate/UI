@@ -1,4 +1,5 @@
 {
+	"_id": 1234,
 	"Name": "Raajiikiis Mine",
 	"Author": "Not Cyrus",
 	"Theme": "Treasure",
@@ -8,5 +9,100 @@
 		"Dungeons",
 		"Loot",
 		"Hack-n-slash"
+	],
+	"Players": [
+		{
+			"Name": "Tito Firehawk",
+			"Race": "Dragonborne",
+			"Class": [
+				"Warrior"
+			],
+			"Feats": [
+
+			],
+			"Religion": "Suviidiir",
+			"Background": {
+				"CharacterDetails": "",
+				"Inspiration": "",
+				"Backgrounds": ""
+			},
+			"Equipment": {
+				"Wealth": "",
+				"Armor": "",
+				"Shields": "",
+				"Weapons": "",
+				"AdventuringGear": "",
+				"Tools": "",
+				"Mounts": "",
+				"Vehicles": "",
+				"TradeGoods": "",
+				"Expenses": "",
+				"Trinkets": ""
+			},
+			"Abilities": {
+				"Scores": [
+
+				],
+				"Modifiers": [
+
+				],
+				"Advantages": [
+
+				],
+				"Disadvantages": [
+
+				],
+				"ProficiencyBonus": "",
+				"Checks": "",
+				"SavingThrow"
+			}
+		},
+		{
+			"Name": "Oviince Lafrooime",
+			"Race": "French Orc",
+			"Class": [
+				"Rogue",
+				"Thief"
+			],
+			"Feats": [
+
+			],
+			"Religion": "Moonshii",
+			"Background": {
+				"CharacterDetails": "",
+				"Inspiration": "",
+				"Backgrounds": ""
+			},
+			"Equipment": {
+				"Wealth": "",
+				"Armor": "",
+				"Shields": "",
+				"Weapons": "",
+				"AdventuringGear": "",
+				"Tools": "",
+				"Mounts": "",
+				"Vehicles": "",
+				"TradeGoods": "",
+				"Expenses": "",
+				"Trinkets": ""
+			},
+			"Abilities": {
+				"Scores": [
+
+				],
+				"Modifiers": [
+
+				],
+				"Advantages": [
+
+				],
+				"Disadvantages": [
+
+				],
+				"ProficiencyBonus": "",
+				"Checks": "",
+				"SavingThrow"
+			}
+		}
 	]
 }
