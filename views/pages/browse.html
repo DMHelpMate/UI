@@ -14,13 +14,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr> <!-- replace myCamps.test with document _id -->
 				<td>{{myCamps.Name}}</td>
 				<td>{{myCamps.Author}}</td>
 				<td>{{myCamps.Theme}}</td>
 				<td>{{myCamps.Description}}</td>
 				<td>{{myCamps.Tags}}</td>
-				<td><button class="btn btn-default">Play</button></td>
+				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(myCamps.test, 'local')">Play</button></a></td>
 			</tr>
 		</tbody>
 	</table>
@@ -35,13 +35,13 @@
 			<th>Play</th>
 		</thead>
 		<tbody>
-			<tr>
+			<tr> <!-- replace theirCamps.test with document _id -->
 				<td>{{theirCamps.Name}}</td>
 				<td>{{theirCamps.Author}}</td>
 				<td>{{theirCamps.Theme}}</td>
 				<td>{{theirCamps.Description}}</td>
 				<td>{{theirCamps.Tags}}</td>
-				<td><button class="btn btn-default">Play</button></td>
+				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(theirCamps.test, 'community')">Play</button></a></td>
 			</tr>
 		</tbody>
 	</table>

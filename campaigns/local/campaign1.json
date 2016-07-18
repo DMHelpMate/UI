@@ -1,5 +1,6 @@
 {
-	"id": 4321,
+	"id": "4321",
+	"test" : "campaign1",
 	"Name": "Land of the Miis",
 	"Author": "Cyrus",
 	"Theme": "Adventure",

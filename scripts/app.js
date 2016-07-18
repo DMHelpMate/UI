@@ -8,7 +8,8 @@
 		})
 
 		.when('/play', {
-			templateUrl: '../views/pages/play.html'
+			templateUrl: '../views/pages/play.html',
+			controller: 'PlayController'
 		})
 
 		.when('/create', {

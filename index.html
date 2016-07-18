@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="dm">
 <head>
-	<!-- Script imports -->
+	<!-- Script dependency imports -->
 	<script type="text/javascript" src="scripts/imports/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src="scripts/imports/angular.min.js"></script>
 	<script type="text/javascript" src="scripts/imports/angular-route.min.js"></script>
 	<script type="text/javascript" src="scripts/design/transitions.js"></script>
+
+	<!-- Angular imports -->
 	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/services/CampaignFactory.js"></script>
 	<script type="text/javascript" src="scripts/controllers/BrowseController.js"></script>
+	<script type="text/javascript" src="scripts/controllers/PlayController.js"></script>
 
 	<!-- Style imports -->
 	<link rel="stylesheet" type="text/css" href="styles/imports/bootstrap.min.css">
@@ -43,7 +47,6 @@
 
 	
 	<!-- Template import start -->
-	<!-- TODO: proper template swapping through routing -->
 	<div class="container"><div ng-view></div></div>		
 	<!-- Template import end -->
 
