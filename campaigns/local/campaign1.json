@@ -1,5 +1,6 @@
 {
-	"id": 4321,
+	"id": "4321",
+	"test" : "campaign1",
 	"Name": "Land of the Miis",
 	"Author": "Cyrus",
 	"Theme": "Adventure",
@@ -9,99 +10,5 @@
 		"Religious",
 		"Demons",
 		"Dark"
-	],
-	"Players": [
-		{
-			"Name": "Tito Firehawk",
-			"Race": "Dragonborne",
-			"Class": [
-				"Warrior"
-			],
-			"Feats": [
-
-			],
-			"Religion": "Suviidiir",
-			"Background": {
-				"CharacterDetails": "",
-				"Inspiration": "",
-				"Backgrounds": ""
-			},
-			"Equipment": {
-				"Wealth": "",
-				"Armor": "",
-				"Shields": "",
-				"Weapons": "",
-				"AdventuringGear": "",
-				"Tools": "",
-				"Mounts": "",
-				"Vehicles": "",
-				"TradeGoods": "",
-				"Expenses": "",
-				"Trinkets": ""
-			},
-			"Abilities": {
-				"Scores": [
-
-				],
-				"Modifiers": [
-
-				],
-				"Advantages": [
-
-				],
-				"Disadvantages": [
-
-				],
-				"ProficiencyBonus": "",
-				"Checks": "",
-				"SavingThrow"
-			}
-		},
-		{
-			"Name": "Lancingwell Footbottom",
-			"Race": "British",
-			"Class": [
-				"Nobelman"
-			],
-			"Feats": [
-
-			],
-			"Religion": "Suviidiir",
-			"Background": {
-				"CharacterDetails": "",
-				"Inspiration": "",
-				"Backgrounds": ""
-			},
-			"Equipment": {
-				"Wealth": "",
-				"Armor": "",
-				"Shields": "",
-				"Weapons": "",
-				"AdventuringGear": "",
-				"Tools": "",
-				"Mounts": "",
-				"Vehicles": "",
-				"TradeGoods": "",
-				"Expenses": "",
-				"Trinkets": ""
-			},
-			"Abilities": {
-				"Scores": [
-
-				],
-				"Modifiers": [
-
-				],
-				"Advantages": [
-
-				],
-				"Disadvantages": [
-
-				],
-				"ProficiencyBonus": "",
-				"Checks": "",
-				"SavingThrow"
-			}
-		}
 	]
 }
