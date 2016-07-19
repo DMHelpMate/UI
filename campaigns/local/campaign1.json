@@ -1,0 +1,14 @@
+{
+	"id": "4321",
+	"test" : "campaign1",
+	"Name": "Land of the Miis",
+	"Author": "Cyrus",
+	"Theme": "Adventure",
+	"Description": "Journey to a far away land where the people have been rumored to cohort and mingle with demons and gods alike. Trust no one.",
+	"Tags": [
+		"Mystery",
+		"Religious",
+		"Demons",
+		"Dark"
+	]
+}

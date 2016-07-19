@@ -12,6 +12,7 @@
 	body {
 		background-color: #000;
 		font-family: "Merriweather", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #fff;
 		font-size: 16px;
 	}
 
@@ -48,18 +49,18 @@
 /* Nav bar styles */
 
 	.navbar {
-		background-color: transparent;
-		border-bottom-color: #272727;
+		border-color: #272727;
 		color: #fff;
+		background-color: rgba(0,0,0,0.85);
 	}
 
 	li.nav-logo {
-		padding-top: 15px;
+		cursor: pointer;
 	}
 
 	li.nav-opt {
 		float: right;
-		padding-top: 5px;
+		margin-top: 20px;
 		font-size: 32px;
 	}
 

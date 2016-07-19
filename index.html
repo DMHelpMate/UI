@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html ng-app="dm">
 <head>
-	<!-- Script imports -->
+	<!-- Script dependency imports -->
 	<script type="text/javascript" src="scripts/imports/jquery-3.0.0.min.js"></script>
 	<script type="text/javascript" src="scripts/imports/angular.min.js"></script>
-	<script type="text/javascript" src="scripts/app.js"></script>
 	<script type="text/javascript" src="scripts/imports/angular-route.min.js"></script>
 	<script type="text/javascript" src="scripts/design/transitions.js"></script>
+
+	<!-- Angular imports -->
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/services/CampaignFactory.js"></script>
+	<script type="text/javascript" src="scripts/controllers/BrowseController.js"></script>
+	<script type="text/javascript" src="scripts/controllers/PlayController.js"></script>
 
 	<!-- Style imports -->
 	<link rel="stylesheet" type="text/css" href="styles/imports/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<link rel="stylesheet" type="text/css" href="styles/home.css">
+	<link rel="stylesheet" type="text/css" href="styles/browse.css">
+	<link rel="stylesheet" type="text/css" href="styles/play.css">
 	<link rel="stylesheet" type="text/css" href="styles/imports/font-awesome-4.6.3/css/font-awesome.min.css">
 
-	<title>Unicorn Rampage!</title>
+	<!-- Meta -->
+	<link rel="icon" type="image/png" href="img/ur-32x32.png">
+
+	<title>A DM's Greatest Friend</title>
 </head>
 <body>
 
@@ -23,7 +33,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav">
-					<li class="nav-logo">[logo here]</li>
+					<li class="nav-logo"><a ng-href="/#/"><img src="img/ur-50x210.png"></a></li>
 				</ul>
 			</div>
 			<div class="navbar-collapse collapse">
@@ -37,7 +47,6 @@
 
 	
 	<!-- Template import start -->
-	<!-- TODO: proper template swapping through routing -->
 	<div class="container"><div ng-view></div></div>		
 	<!-- Template import end -->
 
