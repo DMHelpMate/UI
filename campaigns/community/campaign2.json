@@ -15,77 +15,24 @@
 		]
 	},
 
-	"Players" : [
-		{
-			"Name": "",
-			"Race": "",
-			"Class": [],
-			"Religion": "",
-			"Background": "",
-			"Equipment": [],
-			"Abilities": {
-				"Scores": [],
-				"Modifiers": [],
-				"Advantages": [],
-				"Disadvantages": [],
-				"ProficiencyBonus": "",
-				"Checks": "",
-				"SavingThrow" : ""
-			},
-			"Feats" : []
-		}
-	],
-
 	"Encounters" : [
 		{
 			"General": {
-				"Setting": "",
-				"Threat": "",
-				"Summary": ""
+				"Name": "",
+				"Setup": "",
+				"Read-Aloud": ""
 			},
-			"NPCs": [
-				{
-					"Talent": "",
-					"Mannerism": "",
-					"Interaction-Trait": "",
-					"Useful-Knowledge": "",
-					"Ideal": "",
-					"Bonds": "",
-					"Flaw": "",
-					"Secret": ""
-				}
-			],
 			"Enemies": [
 				{
-					"Name": "",
-					"Weakness": "",
-					"Class": "",
 					"Race": "",
-					"Religion": "",
-					"Background": "",
-					"Equipment": [],
-					"Abilities": {
-						"Scores": [],
-						"Modifiers": [],
-						"Advantages": [],
-						"Disadvantages": [],
-						"ProficiencyBonus": "",
-						"Checks": "",
-						"SavingThrow" : ""
-					},
-					"Feats" : []
+					"Hit-Point": "",
+					"Attack": "",
+					"Defense": ""
 				}
 			],
 			"Location": {
-				"Creator": "",
-				"Cults": [],
-				"Religious-Groups": [],
-				"Purpose": "",
-				"History": "",
-				"Factions": "",
-				"Inhabitants": "",
-				"Ecology": "",
-				"Physical-Description": ""
+				"Name": "",
+				"Description": ""
 			}
 		}
 	]
