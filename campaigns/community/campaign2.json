@@ -18,21 +18,21 @@
 	"Encounters" : [
 		{
 			"General": {
-				"Name": "",
-				"Setup": "",
-				"Read-Aloud": ""
+				"Name": "The Danshire Inn Brawl",
+				"Setup": "The locals are fighting foreigners. When they see our heros from out of town, they will become roudy and attempt to engage our heros in hand-to-hand combat.",
+				"Read-Aloud": "Our heros spot a cozy looking inn with roar of a riot bellowing from its heart"
 			},
 			"Enemies": [
 				{
-					"Race": "",
-					"Hit-Point": "",
-					"Attack": "",
-					"Defense": ""
+					"Race": "Human",
+					"Hit-Point": "10",
+					"Attack": "1",
+					"Defense": "3"
 				}
 			],
 			"Location": {
-				"Name": "",
-				"Description": ""
+				"Name": "1st Floor of the Inn",
+				"Description": "There is a bar with tables around the walls of it. In the center, 30 local patrons have formed a circle around 2 people fighting. One of the fighters does not look like any of the other local patrons."
 			}
 		}
 	]
