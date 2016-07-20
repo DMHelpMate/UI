@@ -1,14 +1,39 @@
 {
 	"id": "1234",
 	"test": "campaign2",
-	"Name": "Raajiikiis Mine",
-	"Author": "Not Cyrus",
-	"Theme": "Treasure",
-	"Description": "Deep down in the bellows of Raajiik lies the treasures of a life time, and the rumors of the end of the world itself.",
-	"Tags": [
-		"Deep",
-		"Dungeons",
-		"Loot",
-		"Hack-n-slash"
+
+	"General": {
+		"Name": "Raajiikiis Mine",
+		"Author": "Not Cyrus",
+		"Theme": "Treasure",
+		"Description": "Deep down in the bellows of Raajiik lies the treasures of a life time, and the rumors of the end of the world itself.",
+		"Tags": [
+			"Deep",
+			"Dungeons",
+			"Loot",
+			"Hack-n-slash"
+		]
+	},
+
+	"Encounters" : [
+		{
+			"General": {
+				"Name": "",
+				"Setup": "",
+				"Read-Aloud": ""
+			},
+			"Enemies": [
+				{
+					"Race": "",
+					"Hit-Point": "",
+					"Attack": "",
+					"Defense": ""
+				}
+			],
+			"Location": {
+				"Name": "",
+				"Description": ""
+			}
+		}
 	]
 }
