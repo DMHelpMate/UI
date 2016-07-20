@@ -15,11 +15,11 @@
 		</thead>
 		<tbody>
 			<tr> <!-- replace myCamps.test with document _id -->
-				<td>{{myCamps.Name}}</td>
-				<td>{{myCamps.Author}}</td>
-				<td>{{myCamps.Theme}}</td>
-				<td>{{myCamps.Description}}</td>
-				<td>{{myCamps.Tags}}</td>
+				<td>{{myCamps.General.Name}}</td>
+				<td>{{myCamps.General.Author}}</td>
+				<td>{{myCamps.General.Theme}}</td>
+				<td>{{myCamps.General.Description}}</td>
+				<td>{{myCamps.General.Tags}}</td>
 				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(myCamps.test, 'local')">Play</button></a></td>
 			</tr>
 		</tbody>
@@ -36,11 +36,11 @@
 		</thead>
 		<tbody>
 			<tr> <!-- replace theirCamps.test with document _id -->
-				<td>{{theirCamps.Name}}</td>
-				<td>{{theirCamps.Author}}</td>
-				<td>{{theirCamps.Theme}}</td>
-				<td>{{theirCamps.Description}}</td>
-				<td>{{theirCamps.Tags}}</td>
+				<td>{{theirCamps.General.Name}}</td>
+				<td>{{theirCamps.General.Author}}</td>
+				<td>{{theirCamps.General.Theme}}</td>
+				<td>{{theirCamps.General.Description}}</td>
+				<td>{{theirCamps.General.Tags}}</td>
 				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(theirCamps.test, 'community')">Play</button></a></td>
 			</tr>
 		</tbody>

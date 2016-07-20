@@ -1,14 +1,92 @@
 {
 	"id": "1234",
 	"test": "campaign2",
-	"Name": "Raajiikiis Mine",
-	"Author": "Not Cyrus",
-	"Theme": "Treasure",
-	"Description": "Deep down in the bellows of Raajiik lies the treasures of a life time, and the rumors of the end of the world itself.",
-	"Tags": [
-		"Deep",
-		"Dungeons",
-		"Loot",
-		"Hack-n-slash"
+
+	"General": {
+		"Name": "Raajiikiis Mine",
+		"Author": "Not Cyrus",
+		"Theme": "Treasure",
+		"Description": "Deep down in the bellows of Raajiik lies the treasures of a life time, and the rumors of the end of the world itself.",
+		"Tags": [
+			"Deep",
+			"Dungeons",
+			"Loot",
+			"Hack-n-slash"
+		]
+	},
+
+	"Players" : [
+		{
+			"Name": "",
+			"Race": "",
+			"Class": [],
+			"Religion": "",
+			"Background": "",
+			"Equipment": [],
+			"Abilities": {
+				"Scores": [],
+				"Modifiers": [],
+				"Advantages": [],
+				"Disadvantages": [],
+				"ProficiencyBonus": "",
+				"Checks": "",
+				"SavingThrow" : ""
+			},
+			"Feats" : []
+		}
+	],
+
+	"Encounters" : [
+		{
+			"General": {
+				"Setting": "",
+				"Threat": "",
+				"Summary": ""
+			},
+			"NPCs": [
+				{
+					"Talent": "",
+					"Mannerism": "",
+					"Interaction-Trait": "",
+					"Useful-Knowledge": "",
+					"Ideal": "",
+					"Bonds": "",
+					"Flaw": "",
+					"Secret": ""
+				}
+			],
+			"Enemies": [
+				{
+					"Name": "",
+					"Weakness": "",
+					"Class": "",
+					"Race": "",
+					"Religion": "",
+					"Background": "",
+					"Equipment": [],
+					"Abilities": {
+						"Scores": [],
+						"Modifiers": [],
+						"Advantages": [],
+						"Disadvantages": [],
+						"ProficiencyBonus": "",
+						"Checks": "",
+						"SavingThrow" : ""
+					},
+					"Feats" : []
+				}
+			],
+			"Location": {
+				"Creator": "",
+				"Cults": [],
+				"Religious-Groups": [],
+				"Purpose": "",
+				"History": "",
+				"Factions": "",
+				"Inhabitants": "",
+				"Ecology": "",
+				"Physical-Description": ""
+			}
+		}
 	]
 }

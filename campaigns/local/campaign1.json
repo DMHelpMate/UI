@@ -1,20 +1,92 @@
 {
 	"id": "4321",
 	"test" : "campaign1",
-	"Name": "Land of the Miis",
-	"Author": "Cyrus",
-	"Theme": "Adventure",
-	"Description": "Journey to a far away land where the people have been rumored to cohort and mingle with demons and gods alike. Trust no one.",
-	"Tags": [
-		"Mystery",
-		"Religious",
-		"Demons",
-		"Dark"
-	],
-	"Players" : [{
 
-	}],
-	"Encounters" : [{
-		
-	}]
+	"General" : {
+		"Name": "Land of the Miis",
+		"Author": "Cyrus",
+		"Theme": "Adventure",
+		"Description": "Journey to a far away land where the people have been rumored to cohort and mingle with demons and gods alike. Trust no one.",
+		"Tags": [
+			"Mystery",
+			"Religious",
+			"Demons",
+			"Dark"
+		]
+	},
+
+	"Players" : [
+		{
+			"Name": "",
+			"Race": "",
+			"Class": [],
+			"Religion": "",
+			"Background": "",
+			"Equipment": [],
+			"Abilities": {
+				"Scores": [],
+				"Modifiers": [],
+				"Advantages": [],
+				"Disadvantages": [],
+				"ProficiencyBonus": "",
+				"Checks": "",
+				"SavingThrow" : ""
+			},
+			"Feats" : []
+		}
+	],
+
+	"Encounters" : [
+		{
+			"General": {
+				"Setting": "",
+				"Threat": "",
+				"Summary": ""
+			},
+			"NPCs": [
+				{
+					"Talent": "",
+					"Mannerism": "",
+					"Interaction-Trait": "",
+					"Useful-Knowledge": "",
+					"Ideal": "",
+					"Bonds": "",
+					"Flaw": "",
+					"Secret": ""
+				}
+			],
+			"Enemies": [
+				{
+					"Name": "",
+					"Weakness": "",
+					"Class": "",
+					"Race": "",
+					"Religion": "",
+					"Background": "",
+					"Equipment": [],
+					"Abilities": {
+						"Scores": [],
+						"Modifiers": [],
+						"Advantages": [],
+						"Disadvantages": [],
+						"ProficiencyBonus": "",
+						"Checks": "",
+						"SavingThrow" : ""
+					},
+					"Feats" : []
+				}
+			],
+			"Location": {
+				"Creator": "",
+				"Cults": [],
+				"Religious-Groups": [],
+				"Purpose": "",
+				"History": "",
+				"Factions": "",
+				"Inhabitants": "",
+				"Ecology": "",
+				"Physical-Description": ""
+			}
+		}
+	]
 }
