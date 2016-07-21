@@ -1,0 +1,37 @@
+/* General styles */
+
+
+
+/* Side nav styles */
+
+#main-play-container ul.sidebar-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	min-height: 600px;
+	background-color: #262626;
+}
+
+#main-play-container li.snav-brand {
+	text-indent: 10px;
+	font-size: 24px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#main-play-container li.snav-opt {
+	text-decoration: none;
+	line-height: 40px;
+}
+
+#main-play-container li.snav-opt:hover {
+	background-color: #404040;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#main-play-container li {
+	border-bottom: solid 3px #1a1a1a;
+	display: block;
+	text-indent: 20px;
+}
