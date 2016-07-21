@@ -1,0 +1,17 @@
+
+<div  ng-show="isActive('Encounter' + $index)" ng-repeat="encounter in camp.Encounters">
+	<div id="{{encounter.General.Name}}">
+		<h1>{{encounter.General.Name}}</h1>
+		<div ng-repeat="(key, val) in encounter">
+			<h2>{{key}}</h2>
+			<div ng-repeat="(key, val) in val" ng-if="!isObj(val)">
+				<p><span class="keyword">{{key}}</span> : {{val}}</p>		
+			</div>
+			<div ng-repeat="(key, val) in val" ng-if="isObj(val)">
+				<div ng-repeat="(key, val) in val track by $index">
+					<p><span class="keyword">{{key}}</span> : {{val}}</p>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

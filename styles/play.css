@@ -1,7 +1,7 @@
 /* General styles */
 
 #main-play-container {
-	margin-top: 80px;
+	margin-top: 79px;
 }
 
 
@@ -28,11 +28,18 @@
 #main-play-container li.snav-opt {
 	text-decoration: none;
 	line-height: 40px;
+	cursor: pointer;
 }
 
 #main-play-container li.snav-opt:hover {
+	background-color: #343434;
+	transition: 0.2s;
+}
+
+#main-play-container li.snav-opt:active,
+#main-play-container li.snav-opt:target,
+#main-play-container li.snav-opt:focus {
 	background-color: #404040;
-	cursor: pointer;
 	transition: 0.2s;
 }
 
@@ -40,4 +47,20 @@
 	border-bottom: solid 3px #1a1a1a;
 	display: block;
 	text-indent: 20px;
+
+	/* Ellipsis concatination for multi-line text */
+	width: 160px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#main-play-container span.keyword {
+	color: #b591ff;
+}
+
+#main-play-container #encounters li {
+	font-size: 12px !important;
+	text-indent: 30px !important;
 }

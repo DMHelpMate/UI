@@ -1,15 +1,24 @@
+
 <div id="main-play-container" class="container">
 	<div class="row">
 		<div class="col-sm-3 col-lg-2">
 			<nav class="navbar navbar-default navbar-fixed-side">
 				<ul class="sidebar-nav">
 					<li class="snav-brand">Menu</li>
-					<li class="snav-opt">General</li>
+					<li id="General" class="snav-opt active" ng-click="setActive($event)">General</li>
+					<li class="snav-opt" data-toggle="collapse" data-target="#encounters">Encounters<i class="fa fa-caret-down"></i>
+					</li>
+					<div id="encounters" class="collapse" >
+						<li id="Encounter{{$index}}" class="snav-opt" ng-repeat="enc in camp.Encounters" ng-click="setActive($event)">
+							{{enc.General.Name}}
+						</li>
+					</div>
 				</ul>
 			</nav>
 		</div>	
 		<div class=" col-sm-9 col-lg-10">
-			<ng-include src="'views/partials/play-general.html'"></ng-include>
+			<ng-include ng-show="isActive('General')" src="'views/partials/play-general.html'"></ng-include>
+			<ng-include src="'views/partials/play-encounters.html?v=39'"></ng-include>
 		</div>
 	</div>
 </div>
