@@ -18,7 +18,6 @@ angular.module('dm')
 
 	//Compare the param to active id
 	$scope.isActive = function (id) {
-		console.log(id + " === " + this.activeClass);
 		return (this.activeClass === id);
 	}
 

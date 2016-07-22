@@ -11,7 +11,6 @@ angular.module('dm')
 		}
 	}).then(function(res) {
 		$scope.myCamps = res.data;
-		console.log(res.data);
 	}, function(err) {
 		console.log(err);
 	});
