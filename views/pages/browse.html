@@ -19,7 +19,7 @@
 				<td>{{myCamps.General.Author}}</td>
 				<td>{{myCamps.General.Theme}}</td>
 				<td>{{myCamps.General.Description}}</td>
-				<td>{{myCamps.General.Tags}}</td>
+				<td><span ng-repeat="tag in myCamps.General.Tags"> {{tag}}</span></td>
 				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(myCamps.test, 'local')">Play</button></a></td>
 			</tr>
 		</tbody>
@@ -40,7 +40,7 @@
 				<td>{{theirCamps.General.Author}}</td>
 				<td>{{theirCamps.General.Theme}}</td>
 				<td>{{theirCamps.General.Description}}</td>
-				<td>{{theirCamps.General.Tags}}</td>
+				<td><span ng-repeat="tag in theirCamps.General.Tags"> {{tag}}</span></td>
 				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(theirCamps.test, 'community')">Play</button></a></td>
 			</tr>
 		</tbody>
