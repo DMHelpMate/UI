@@ -1,6 +1,7 @@
+
 <div id="main-browse-container" class="container">
 	<h1>Choose a campaign</h1>
-	
+
 	<h2>My campaigns</h2>
 	<table class="table">
 		<thead>
@@ -10,20 +11,19 @@
 				<th>Theme</th>
 				<th>Description</th>
 				<th>Tags</th>
-				<th>Play</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr> <!-- replace myCamps.test with document _id -->
-				<td>{{myCamps.General.Name}}</td>
+			<tr class="brws-opt" ng-click="getID(myCamps.test, 'local')">
+				<td class="lft-brws-opt">{{myCamps.General.Name}}</td>
 				<td>{{myCamps.General.Author}}</td>
 				<td>{{myCamps.General.Theme}}</td>
 				<td>{{myCamps.General.Description}}</td>
-				<td><span ng-repeat="tag in myCamps.General.Tags"> {{tag}}</span></td>
-				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(myCamps.test, 'local')">Play</button></a></td>
+				<td class="rgt-brws-opt"><span ng-repeat="tag in myCamps.General.Tags"> {{tag}}</span></td>
 			</tr>
 		</tbody>
 	</table>
+
 	<h2>Community campaigns</h2>
 	<table class="table">
 		<thead>
@@ -32,16 +32,14 @@
 			<th>Theme</th>
 			<th>Description</th>
 			<th>Tags</th>
-			<th>Play</th>
 		</thead>
 		<tbody>
-			<tr> <!-- replace theirCamps.test with document _id -->
-				<td>{{theirCamps.General.Name}}</td>
+			<tr class="brws-opt" ng-click="getID(theirCamps.test, 'community')">
+				<td class="lft-brws-opt">{{theirCamps.General.Name}}</td>
 				<td>{{theirCamps.General.Author}}</td>
 				<td>{{theirCamps.General.Theme}}</td>
 				<td>{{theirCamps.General.Description}}</td>
-				<td><span ng-repeat="tag in theirCamps.General.Tags"> {{tag}}</span></td>
-				<td><a ng-href="/#/play"><button class="btn btn-default" ng-click="getID(theirCamps.test, 'community')">Play</button></a></td>
+				<td class="rgt-brws-opt"><span ng-repeat="tag in theirCamps.General.Tags"> {{tag}}</span></td>
 			</tr>
 		</tbody>
 	</table>

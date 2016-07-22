@@ -1,1 +1,28 @@
-/* General load styles */
+
+/* Browse styles */
+
+#main-browse-container table {
+	border-collapse: collapse !important;
+}
+
+#main-browse-container tr.brws-opt {
+	background-color: #282828;
+	border: 1px solid #505050;
+}
+
+#main-browse-container td.lft-brws-opt: {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#main-browse-container td.rgt-brws-opt {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#main-browse-container tr.brws-opt:hover {
+	cursor: pointer;
+	background-color: #404040;
+	border: 1px solid #808080;
+	margin-top: 1px;
+}

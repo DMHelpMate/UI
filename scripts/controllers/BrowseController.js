@@ -1,5 +1,5 @@
 angular.module('dm')
-.controller('BrowseController', ['$http', '$scope', 'Campaign', function($http, $scope, Campaign) {
+.controller('BrowseController', ['$http', '$location', '$scope', 'Campaign', function($http, $location, $scope, Campaign) {
 
 	//Get user's campaigns
 	$http({
@@ -31,6 +31,7 @@ angular.module('dm')
 
 	$scope.getID = function(camp_id , poss) {
 		Campaign.setID(camp_id, poss);
+		$location.url('/play');
 	}
 
 }]);
