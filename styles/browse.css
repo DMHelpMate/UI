@@ -25,4 +25,5 @@
 	background-color: #404040;
 	border: 1px solid #808080;
 	margin-top: 1px;
+	transition: 0.2s;
 }
