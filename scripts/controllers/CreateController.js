@@ -12,7 +12,6 @@ angular.module('dm')
 //Set the active var to an id
 	$scope.setActive = function (event) {
 		$scope.activeClass = event.target.id;
-		console.log(event);
 	}
 
 }]);
