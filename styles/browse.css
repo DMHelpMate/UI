@@ -1,1 +1,58 @@
-/* General load styles */
+
+/* Browse general styles */
+
+#main-browse-container h1 {
+	color: #fff;
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 62px;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-align: center;
+	border-bottom: 1px solid #9966ff;
+}
+
+#main-browse-container h2 {
+	color: #fff;
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 36px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+
+
+
+
+/* Browse table styles */
+
+#main-browse-container th {
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+#main-browse-container tr.brws-opt {
+	background-color: #282828;
+	border: 1px solid #505050;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+#main-browse-container td.lft-brws-opt: {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+#main-browse-container td.rgt-brws-opt {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#main-browse-container tr.brws-opt:hover {
+	cursor: pointer;
+	background-color: #404040;
+	border: 1px solid #808080;
+	margin-top: 1px;
+	transition: 0.2s;
+}
