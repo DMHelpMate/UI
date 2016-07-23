@@ -1,73 +1,57 @@
 <!-- Starting with the General Info page -->
 <div id="main-create-container" class="container">
 	<h1>Create a Campaign to play later with Friends!</h1>
-<style onload="navBar()">
-body {
-    font-family: "Lato", sans-serif;
-}
+    <div id="create-wrapper">
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 20;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-title"><b>Campaign Creation</b></li>
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
+                <li id="create-general" ng-click="setActive($event)" class="sidebar-header">
+                    General Info
+                </li>
+                <li data-toggle="collapse" data-target="#tablelist" class="sidebar-header">
+                    "Tables/Objects"<i class="fa fa-plus-square-o"></i>
+                </li>
+                <div id="tablelist" class="collapse in">
+                    <li id="create-locations" ng-click="setActive($event)" >
+                        Locations
+                    </li>
+                    <li id="create-monsters" ng-click="setActive($event)" >
+                        Monsters
+                    </li>
+                </div>
+                <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
+                    Encounters<i class="fa fa-plus-square-o"></i>
+                </li>
+                <div id="encounterlist" class="collapse in">
+                    <li id="create-encounters" ng-click="setActive($event)" >
+                        Encounter 1
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        
+        <a href="#create-menu-toggle" class="btn btn-default" id="create-menu-toggle">Toggle Menu</a>
+        
+        <!-- Page Content -->
+        <div>
+            <ng-include ng-show="isActive('create-general')" src="'views/pages/create-general.html'"></ng-include>
+            <ng-include ng-show="isActive('create-encounters')" src="'views/pages/create-encounters.html'"></ng-include>
+            <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html'"></ng-include>
+            <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html'"></ng-include>
+        </div>
+        <!-- /#page-content-wrapper -->
 
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
+    </div>
 
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-<body>
-
-<div id="mySidenav" class="sidenav">
-  <a>General Info</a>
-  <a>Tables</a>
-  <a>Encounters</a>
-</div>
-
-<div id="this-should-be-in-another-Template">
-  <h2>Here is Where the internal Template would Go!</h2>
-</div>
-
-<script>
-function navBar() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-</script>
-     
-</body>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#create-menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#create-wrapper").toggleClass("toggled");
+    });
+    </script>
 </div>
