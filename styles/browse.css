@@ -1,13 +1,43 @@
 
-/* Browse styles */
+/* Browse general styles */
 
-#main-browse-container table {
-	border-collapse: collapse !important;
+#main-browse-container h1 {
+	color: #fff;
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 62px;
+	font-weight: 400;
+/*	text-transform: uppercase;
+*/	letter-spacing: 0;
+	text-align: center;
+}
+
+#main-browse-container h2 {
+	color: #fff;
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 36px;
+	font-weight: 300;
+	/*text-transform: uppercase;*/
+	letter-spacing: 1px;
+}
+
+
+
+
+
+/* Browse table styles */
+
+#main-browse-container th {
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	letter-spacing: 2px;
 }
 
 #main-browse-container tr.brws-opt {
 	background-color: #282828;
 	border: 1px solid #505050;
+	font-size: 16px;
+	font-weight: 300;
 }
 
 #main-browse-container td.lft-brws-opt: {
