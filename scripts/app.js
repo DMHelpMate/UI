@@ -13,7 +13,8 @@
 		})
 
 		.when('/create', {
-			templateUrl: '../views/pages/create.html'
+			templateUrl: '../views/pages/create.html',
+			controller: 'CreateController'
 		})
 
 		.when('/browse', {

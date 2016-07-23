@@ -1,52 +1,148 @@
-/* General load styles */
-
-#main-create-container body {
-    font-family: "Lato", sans-serif;
-}
-
-#main-create-container .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 20;
-    left: 0;
-    background-color: #111;
+body {
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    margin-left: 70px;
+ }
+
+/* Toggle Styles */
+
+#main-create-container #create-wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-#main-create-container .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+#main-create-container #create-wrapper.toggled {
+    padding-left: 150px;
 }
 
-#main-create-container .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+#main-create-container #sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: rgba(109, 74, 144,0.2);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-#main-create-container .closebtn {
+#main-create-container #create-wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#main-create-container #page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#main-create-container #create-wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+#main-create-container .sidebar-nav {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
+#main-create-container .sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+#main-create-container .sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
 }
 
-	}
+#main-create-container .sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+#main-create-container .sidebar-nav li a:active,
+#main-create-container .sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+#main-create-container .sidebar-nav > .sidebar-title {
+    height: 65px;
+    font-size: 22px;
+    line-height: 60px;
+    background: none;
+}
+
+#main-create-container .sidebar-nav > .sidebar-title a {
+    color: #fff;
+    background: rgba(124, 2, 247,0.2);
+}
+
+#main-create-container .sidebar-nav > .sidebar-title a:hover {
+    background: rgba(124, 2, 247,0.2);
+}
+
+#main-create-container .sidebar-nav > .sidebar-header {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+#main-create-container .sidebar-nav > .sidebar-header a {
+    color: #fff;
+}
+
+#main-create-container .sidebar-nav > .sidebar-header a:hover {
+    background: rgba(255,255,255,0.2);
+    border-style: solid;
+}
+
+#main-create-container .sidebar-nav > .sidebar-item a:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+#main-create-container @media(min-width:768px) {
+    #main-create-container #create-wrapper {
+        padding-left: 100px;
+    }
+
+    #main-create-container #create-wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #main-create-container #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #main-create-container #create-wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #main-create-container #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #main-create-container #create-wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+    #main-create-container #create-menu-toggle {
+        margin-left: 12px;
+    }
+}
