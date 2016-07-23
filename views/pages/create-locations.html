@@ -1,4 +1,43 @@
 <div id="create-locations-container">
-	<h1>Locations</h1>
-	<p>Here is some location stuff</p>
+
+		<script src="../../scripts/imports/jquery-3.0.0.min.js"></script>
+		<script src="../../scripts/functionality/table creation.js"></script>
+
+		<form name="myform" id="myform">
+			<h1>Locations<h1>
+				<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
+			<!-- <input type="text" name="TableName" value="Table Name"> <br> -->
+					<table id="blacklistgrid">
+	            <tr id="Row1">
+	                <td class="space">&nbsp;</td>
+	                <td>
+										<p>Name</p>
+												<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
+	                    <!--<input type="text" placeholder="Attribute" name="col"/> -->
+									</td>
+									<td>
+										<p>Description</p>
+									</td>
+	            </tr>
+	            <tr id="Row2">
+	                <td>
+	                <td>
+	                    <input type="text" placeholder="Object" name="row"/>
+	                </td>
+									<td>
+											<input type="text" placeholder="Object" name="row"/>
+									</td>
+	            </tr>
+	    		</table>
+
+					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
+			<!-- <button type="button" id="btnAddCol">Add Column</button> -->
+	    <button type="button" id="btnAdd">Add Row</button></br></br>
+
+			<input type="submit" value="Save Table"></input>
+					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
+			<!-- <button type="button" onclick="alert('Do you wish to delete this current table?')">Remove Table</button> -->
+			<!-- <button type="button" onclick="alert('Do you wish to create a new table? Be sure to save your current one!')">Create New table</button> -->
+			<button type="button">Start Enounter Creation</button>
+		</form>
 </div>
