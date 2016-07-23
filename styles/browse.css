@@ -6,9 +6,9 @@
 	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 62px;
 	font-weight: 400;
-/*	text-transform: uppercase;
-*/	letter-spacing: 0;
+	letter-spacing: 0;
 	text-align: center;
+	border-bottom: 1px solid #9966ff;
 }
 
 #main-browse-container h2 {
@@ -16,7 +16,6 @@
 	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 36px;
 	font-weight: 300;
-	/*text-transform: uppercase;*/
 	letter-spacing: 1px;
 }
 
@@ -36,7 +35,7 @@
 #main-browse-container tr.brws-opt {
 	background-color: #282828;
 	border: 1px solid #505050;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 300;
 }
 
