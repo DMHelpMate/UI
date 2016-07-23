@@ -1,45 +1,57 @@
 <!-- Starting with the General Info page -->
 <div id="main-create-container" class="container">
 	<h1>Create a Campaign to play later with Friends!</h1>
-    <div id="wrapper">
+    <div id="create-wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-title">
-                    <a><b>Campaign Creation</b></a>
+                <li class="sidebar-title"><b>Campaign Creation</b></li>
+
+                <li id="create-general" ng-click="setActive($event)" class="sidebar-header">
+                    General Info
                 </li>
-                <li class="sidebar-header">
-                    <a href="#">General Info</a>
+                <li data-toggle="collapse" data-target="#tablelist" class="sidebar-header">
+                    "Tables/Objects"<i class="fa fa-plus-square-o"></i>
                 </li>
-                <li class="sidebar-header">
-                    <a data-toggle="collapse" data-target="#tablelist">"Tables/Objects"<i class="fa fa-plus-square-o"></i></a>
+                <div id="tablelist" class="collapse in">
+                    <li id="create-locations" ng-click="setActive($event)" >
+                        Locations
+                    </li>
+                    <li id="create-monsters" ng-click="setActive($event)" >
+                        Monsters
+                    </li>
+                </div>
+                <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
+                    Encounters<i class="fa fa-plus-square-o"></i>
                 </li>
-                <li id="tablelist" class="sidebar-item collapse">
-                    <a href="#">Locations</a>
-                    <a href="#">Monsters</a>
-                </li>
-                <li class="sidebar-header">
-                    <a data-toggle="collapse" data-target="#encounterlist">Encounters<i class="fa fa-plus-square-o"></i></a>
-                </li>
-                <li id="encounterlist" class="sidebar-item collapse">
-                    <a href="#">Encounter 1</a>
-                    <a href="#">Encounter 2</a>
-                    <a href="#">Encounter 3</a>
-                    <a href="#">Encounter 4</a>
-                </li>
+                <div id="encounterlist" class="collapse in">
+                    <li id="create-encounters" ng-click="setActive($event)" >
+                        Encounter 1
+                    </li>
+                </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-
-        <!-- Menue Toggle Button -->
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+        
+        <a href="#create-menu-toggle" class="btn btn-default" id="create-menu-toggle">Toggle Menu</a>
         
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <h1>General Info</h1> 
+        <div>
+            <ng-include ng-show="isActive('create-general')" src="'views/pages/create-general.html'"></ng-include>
+            <ng-include ng-show="isActive('create-encounters')" src="'views/pages/create-encounters.html'"></ng-include>
+            <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html'"></ng-include>
+            <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html'"></ng-include>
         </div>
         <!-- /#page-content-wrapper -->
 
     </div>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#create-menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#create-wrapper").toggleClass("toggled");
+    });
+    </script>
 </div>
