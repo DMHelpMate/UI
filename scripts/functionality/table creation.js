@@ -1,10 +1,17 @@
 
 
 $(document).ready(function () {
-			 $('#btnAdd').click(function () {
-						 var count = 1, first_row = $('#Row2');
-							 while(count-- > 0)                    first_row.clone().appendTo('#blacklistgrid');
+		$('#monAdd').click(function () {
+						 var first_row = $('#monRow');
+							 first_row.clone().appendTo('#monTable');
+							 console.log(this);
 		});
+		$('#locAdd').click(function () {
+				 var first_row = $('#locRow');
+						first_row.clone().appendTo('#locTable');
+						 console.log(this);
+
+ 		});
 			/* THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES
 			 $('#btnAddCol').click(function () {
 					 $("#blacklistgrid tr").each(function(){

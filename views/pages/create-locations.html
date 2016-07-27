@@ -1,15 +1,12 @@
 <div id="create-locations-container">
 
-		<script src="../../scripts/imports/jquery-3.0.0.min.js"></script>
-		<script src="../../scripts/functionality/table creation.js"></script>
-
-		<form name="myform" id="myform">
-			<h1>Locations<h1>
+		<!--<script src="../../scripts/imports/jquery-3.0.0.min.js"></script> -->
+		<form id="locform">
+			<h1>Locations</h1>
 				<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
 			<!-- <input type="text" name="TableName" value="Table Name"> <br> -->
-					<table id="blacklistgrid">
-	            <tr id="Row1">
-	                <td class="space">&nbsp;</td>
+					<table id="locTable">
+	            <tr id="locHeader">
 	                <td>
 										<p>Name</p>
 												<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
@@ -19,8 +16,7 @@
 										<p>Description</p>
 									</td>
 	            </tr>
-	            <tr id="Row2">
-	                <td>
+	            <tr id="locRow">
 	                <td>
 	                    <input type="text" placeholder="Object" name="row"/>
 	                </td>
@@ -32,7 +28,7 @@
 
 					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
 			<!-- <button type="button" id="btnAddCol">Add Column</button> -->
-	    <button type="button" id="btnAdd">Add Row</button></br></br>
+	    <button type="button" id="locAdd">Add Row</button><br /><br />
 
 			<input type="submit" value="Save Table"></input>
 					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
