@@ -1,4 +1,13 @@
 <div id="create-generalinfo-container">
-	<h1>General Info</h1>
-	<p>LOTS OF STUFF</p>
+	<form ng-submit="submit()">
+	  Name/Title of Campaign:<br>
+	  <input type="text" ng-model="camptitle"><br>
+	  Author (your id):<br>
+	  <input type="text" ng-model="campauthor"><br>
+	  Theme of Campaign:<br>
+	  <input type="text" ng-model="camptheme"><br>
+	  Short Discription:<br>
+	  <input type="text" ng-model="campdisc">
+	  <input type="submit" id="submit" value="Submit" />
+	</form>
 </div>
