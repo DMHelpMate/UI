@@ -27,7 +27,7 @@ angular.module('dm')
 	$scope.campauthor = 'BallsMandella';
 	$scope.camptheme = 'Balls in the Air';
 	$scope.campdisc = 'There will be lots of';
-    $scope.submit = function() {
+    $scope.generalsubmit = function() {
         if ($scope.camptitle) {
           campaigngeneraljson.title = this.camptitle;
         }
@@ -53,7 +53,7 @@ angular.module('dm')
 
 	$scope.localname = 'Dungeon of Balls';
 	$scope.localdisc = 'There will be lots of balls... everywhere';
-    $scope.submit = function() {
+    $scope.locationsubmit = function() {
         if ($scope.localname) {
           locationjson.name = this.localname;
         }
@@ -75,7 +75,7 @@ angular.module('dm')
 	$scope.monsterhp = '69';
 	$scope.monsterat = '96';
 	$scope.monsterdf = '80085';
-    $scope.submit = function() {
+    $scope.monstersubmit = function() {
         if ($scope.monstername) {
           monstersjson.name = this.monstername;
         }
@@ -89,6 +89,36 @@ angular.module('dm')
           monstersjson.discription = this.monsterdf;
         }
         console.log(monstersjson);
+    }; 
+
+
+//Creating JSON object for the Encounters of a new Campaign
+	var encountersjson = [
+		{
+			'encounterinfo': {
+				'name':'',
+				'dmnotes':'',
+				'readaloud':''
+			},
+			'location': [],
+			'monsters':[]
+		}
+	]
+
+	$scope.enctrname = 'Encounter at Farpoint';
+	$scope.enctrdmnotes = 'Dont read this to those little fuckers';
+	$scope.enctrreadaloud = 'Now you can read this to the little shits';
+    $scope.enctrsubmit = function() {
+        if ($scope.enctrname) {
+          encountersjson.title = this.enctrname;
+        }
+        if ($scope.enctrdmnotes) {
+          encountersjson.author = this.enctrdmnotes;
+        }
+        if ($scope.enctrreadaloud) {
+          encountersjson.discription = this.enctrreadaloud;
+        }
+        console.log(encountersjson);
     }; 
 
 }]);
