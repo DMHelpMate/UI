@@ -1,4 +1,12 @@
 <div id="create-encounters-container">
-	<h1>Encounters</h1>
-	<p>Here is a shit ton of info about encounters!</p>
+<h1>Now it is Time to Create your Encounters</h1>
+	<form ng-submit="enctrsubmit()">
+	  Name/Title of Encounter:<br>
+	  <input type="text" ng-model="enctertitle"><br>
+	  Add your DM Notes for this Encounter:<br>
+	  <input type="text" ng-model="encterdmnotes"><br>
+	  Short Discription:<br>
+	  <input type="text" ng-model="encterreadaloud">
+	  <input type="submit" value="Submit Encounter" />
+	</form>
 </div>
