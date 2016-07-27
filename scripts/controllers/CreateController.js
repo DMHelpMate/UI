@@ -41,7 +41,7 @@ angular.module('dm')
           campaigngeneraljson.discription = this.campdisc;
         }
         console.log(campaigngeneraljson);
-    }; 
+    };
 
 //Creating JSON object for the Monsters and Locations information for a new Campaign
 
@@ -61,7 +61,7 @@ angular.module('dm')
           locationjson.discription = this.localdisc;
         }
         console.log(locationjson);
-    }; 
+    };
 
 //Monsters
 	var monstersjson = {
@@ -89,7 +89,7 @@ angular.module('dm')
           monstersjson.discription = this.monsterdf;
         }
         console.log(monstersjson);
-    }; 
+    };
 
 
 //Creating JSON object for the Encounters of a new Campaign
@@ -119,6 +119,16 @@ angular.module('dm')
           encountersjson.discription = this.enctrreadaloud;
         }
         console.log(encountersjson);
-    }; 
+    };
+
+	$scope.appendToLoc = function() {
+		var first_row = $('#locRow');
+		first_row.clone().appendTo('#locTable');
+	}
+
+	$scope.appendToMon = function() {
+		var first_row = $('#monRow');
+		first_row.clone().appendTo('#monTable');
+	}
 
 }]);

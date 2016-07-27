@@ -33,15 +33,15 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-        
+
         <a href="#create-menu-toggle" class="btn btn-default" id="create-menu-toggle">Toggle Menu</a>
-        
+
         <!-- Page Content -->
-        <div>
+        <div class="container">
             <ng-include ng-show="isActive('create-general')" src="'views/pages/create-general.html'"></ng-include>
             <ng-include ng-show="isActive('create-encounters')" src="'views/pages/create-encounters.html'"></ng-include>
-            <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html'"></ng-include>
-            <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html'"></ng-include>
+            <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html?v=1'"></ng-include>
+            <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html?v=1'"></ng-include>
         </div>
         <!-- /#page-content-wrapper -->
 
