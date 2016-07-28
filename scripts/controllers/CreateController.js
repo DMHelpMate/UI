@@ -47,13 +47,17 @@ angular.module('dm')
 
 //Locations
 	var locationjson = {
-		'name':'',
-		'discription':''
-	}
+  		'name':'',
+  		'discription':''
+  	}
+
+    var locations = []
 
 	$scope.localname = 'Dungeon of Balls';
 	$scope.localdisc = 'There will be lots of balls... everywhere';
-    $scope.locationsubmit = function() {
+    $scope.localsubmit = function() {
+      //need to add loop to go through all rows
+      // creates "locationjson" objects
         if ($scope.localname) {
           locationjson.name = this.localname;
         }
@@ -61,6 +65,12 @@ angular.module('dm')
           locationjson.discription = this.localdisc;
         }
         console.log(locationjson);
+
+        //Before Loop ends/goes back to top, push single location i n to "locations" array
+        addrowtolocationjson = function() {
+          locations.push(this.locationjson);
+        }
+        //END LOOP
     };
 
 //Monsters

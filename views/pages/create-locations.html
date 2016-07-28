@@ -1,39 +1,23 @@
 <div id="create-locations-container">
-
-		<!--<script src="../../scripts/imports/jquery-3.0.0.min.js"></script> -->
-		<form id="locform">
-			<h1>Locations</h1>
-				<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <input type="text" name="TableName" value="Table Name"> <br> -->
-					<table id="locTable">
-	            <tr id="locHeader">
-	                <td>
-										<p>Name</p>
-												<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-	                    <!--<input type="text" placeholder="Attribute" name="col"/> -->
-									</td>
-									<td>
-										<p>Description</p>
-									</td>
-	            </tr>
-	            <tr id="locRow">
-	                <td>
-	                    <input type="text" placeholder="Object" name="row"/>
-	                </td>
-									<td>
-											<input type="text" placeholder="Object" name="row"/>
-									</td>
-	            </tr>
-	    		</table>
-
-					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <button type="button" id="btnAddCol">Add Column</button> -->
-	    <button ng-click="appendToLoc()"type="button" id="locAdd">Add Row</button><br /><br />
-
-			<input type="submit" value="Save Table"></input>
-					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <button type="button" onclick="alert('Do you wish to delete this current table?')">Remove Table</button> -->
-			<!-- <button type="button" onclick="alert('Do you wish to create a new table? Be sure to save your current one!')">Create New table</button> -->
-			<button type="button">Start Enounter Creation</button>
-		</form>
+	<h1>Locations</h1>
+	<form ng-submit="localsubmit()">
+		<table id="locTable">
+		<!-- HEADERS FOR LOCATION TABLE -->
+            <tr id="locHeader">
+                <th>Name</th>
+				<th>Description</th>
+            </tr>
+        <!-- Input Fields underneath Headers -->
+            <tr id="locRow">
+                <td>
+                    <input type="text" placeholder="Object" ng-model="localname"/>
+                </td>
+				<td>
+					<input type="text" placeholder="Object" ng-model="localdisc"/>
+				</td>
+            </tr>
+    	</table>
+    	<button ng-click="appendToLoc()"type="button" id="locAdd">Add Row</button><br /><br />
+		<input type="submit" value="Save Table"></input>
+	</form>
 </div>
