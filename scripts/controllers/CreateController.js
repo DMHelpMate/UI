@@ -23,10 +23,10 @@ angular.module('dm')
 		'discription':''
 	}
 
-	$scope.camptitle = 'Dungeon of Balls';
-	$scope.campauthor = 'BallsMandella';
-	$scope.camptheme = 'Balls in the Air';
-	$scope.campdisc = 'There will be lots of';
+	$scope.camptitle = '';
+	$scope.campauthor = '';
+	$scope.camptheme = '';
+	$scope.campdisc = '';
     $scope.generalsubmit = function() {
         if ($scope.camptitle) {
           campaigngeneraljson.title = this.camptitle;
