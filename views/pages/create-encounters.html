@@ -1,4 +1,17 @@
 <div id="create-encounters-container">
-	<h1>Encounters</h1>
-	<p>Here is a shit ton of info about encounters!</p>
+<h1>Now it is Time to Create your Encounters</h1>
+	<form ng-submit="enctrsubmit()">
+	  Name/Title of Encounter:<br>
+	  <input type="text" ng-model="enctertitle"><br>
+	  Add your DM Notes for this Encounter:<br>
+	  <input type="text" ng-model="encterdmnotes"><br>
+	  Read Aloud Text:<br>
+	  <textarea id="encterreadaloud" ng-model="encterreadaloud" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br><br>
+
+	  <select name="localselect" id="localselect" ng-model="locations">
+      <option ng-repeat="option in locations.availableOptions" value="{{option.id}}">{{option.name}}</option>
+      </select>
+
+	  <input type="submit" class="btn btn-default" value="Submit Encounter" />
+	</form>
 </div>
