@@ -1,23 +1,26 @@
 <div id="create-locations-container">
 	<h1>Locations</h1>
-	<form ng-submit="localsubmit()">
-		<table id="locTable">
-		<!-- HEADERS FOR LOCATION TABLE -->
-            <tr id="locHeader">
-                <th>Name</th>
-				<th>Description</th>
-            </tr>
-        <!-- Input Fields underneath Headers -->
-            <tr id="locRow">
-                <td>
-                    <input type="text" placeholder="Object" ng-model="localname"/>
-                </td>
-				<td>
-					<input type="text" placeholder="Object" ng-model="localdisc"/>
-				</td>
-            </tr>
-    	</table>
-    	<button ng-click="appendToLoc()"type="button" id="locAdd">Add Row</button><br /><br />
-		<input type="submit" value="Save Table"></input>
+	<form ng-submit="addrow()">
+        <label>Location Name</label>
+        <input type="text" name="locationname" ng-model="locationname"></input>
+        <label>Discription of the Location</label>
+        <input type="text" name="locationdiscription" ng-model="locationdiscription"></input>
+    	<!-- <button ng-click="appendToLoc()" type="button" class="btn btn-default" id="locAdd">Add Row</button><br /><br /> -->
+		<input  type="submit" class="btn btn-default" value="Add Row"></input>
 	</form>
+
+    <table class="table">
+    <tr>
+        <th>Name
+        </th>
+        <th>Discription
+        </th>
+    </tr>
+    <tr ng-repeat="location in locations">
+        <td>{{location.locationname}}
+        </td>
+        <td>{{location.locationdiscription}}
+        </td>
+    </tr>
+</table>
 </div>

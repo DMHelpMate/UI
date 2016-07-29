@@ -1,5 +1,5 @@
-<div id="create-generalinfo-container">
-	<form ng-submit="generalsubmit()">
+<div id="create-generalinfo-container" class="container">
+	<form id="campgeninput" ng-submit="generalsubmit()">
 	  Name/Title of Campaign:<br>
 	  <input type="text" ng-model="camptitle"><br>
 	  Author (your id):<br>
@@ -7,7 +7,8 @@
 	  Theme of Campaign:<br>
 	  <input type="text" ng-model="camptheme"><br>
 	  Short Discription:<br>
-	  <input type="text" ng-model="campdisc"><br><br>
-	  <input type="submit" value="Submit Campaign General Info" />
+	  <textarea id="campdisc" ng-model="campdisc" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br>
+	  <br>
+	  <input type="submit" class="btn btn-default" value="Submit Campaign General Info" />
 	</form>
 </div>

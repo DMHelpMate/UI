@@ -46,32 +46,18 @@ angular.module('dm')
 //Creating JSON object for the Monsters and Locations information for a new Campaign
 
 //Locations
-	var locationjson = {
-  		'name':'',
-  		'discription':''
-  	}
+    $scope.locations = [];
 
-    var locations = []
-
-	$scope.localname = 'Dungeon of Balls';
-	$scope.localdisc = 'There will be lots of balls... everywhere';
-    $scope.localsubmit = function() {
-      //need to add loop to go through all rows
-      // creates "locationjson" objects
-        if ($scope.localname) {
-          locationjson.name = this.localname;
-        }
-        if ($scope.campauthor) {
-          locationjson.discription = this.localdisc;
-        }
-        console.log(locationjson);
-
-        //Before Loop ends/goes back to top, push single location i n to "locations" array
-        addrowtolocationjson = function() {
-          locations.push(this.locationjson);
-        }
-        //END LOOP
+    $scope.addrow = function(){  
+    console.log("name="+$scope.locationname); 
+    console.log("disc="+$scope.locationdiscription); 
+      $scope.locations.push({ 'name':$scope.locationname, 'discription':$scope.locationdiscription });
+      console.log($scope.locations);
+      // $scope.locationname='';
+      // $scope.locationdiscription='';
     };
+
+
 
 //Monsters
 	var monstersjson = {
@@ -131,10 +117,6 @@ angular.module('dm')
         console.log(encountersjson);
     };
 
-	$scope.appendToLoc = function() {
-		var first_row = $('#locRow');
-		first_row.clone().appendTo('#locTable');
-	}
 
 	$scope.appendToMon = function() {
 		var first_row = $('#monRow');
