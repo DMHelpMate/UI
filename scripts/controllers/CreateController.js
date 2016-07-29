@@ -46,42 +46,22 @@ angular.module('dm')
 //Creating JSON object for the Monsters and Locations information for a new Campaign
 
 //Locations
-    $scope.locations = [];
-    $scope.location = {};
-    $scope.addrow = function(){  
-      $scope.locations.push({ 'name':$scope.location.name, 'discription':$scope.location.discription });
-      console.log($scope.locations);
-    };
+  $scope.locations = [];
+  $scope.location = {};
+  $scope.locationsaddrow = function(){  
+    $scope.locations.push({ 'lname':$scope.location.lname, 'ldiscription':$scope.location.ldiscription });
+    console.log($scope.locations);
+  };
 
 
 
 //Monsters
-	var monstersjson = {
-		'name':'',
-		'hitpoints':'',
-		'attack':'',
-		'defense':''
-	}
-
-	$scope.monstername = 'Dire Balls';
-	$scope.monsterhp = '69';
-	$scope.monsterat = '96';
-	$scope.monsterdf = '80085';
-    $scope.monstersubmit = function() {
-        if ($scope.monstername) {
-          monstersjson.name = this.monstername;
-        }
-        if ($scope.monsterhp) {
-          monstersjson.discription = this.monsterhp;
-        }
-        if ($scope.monsterat) {
-          monstersjson.name = this.monsterat;
-        }
-        if ($scope.monsterdf) {
-          monstersjson.discription = this.monsterdf;
-        }
-        console.log(monstersjson);
-    };
+  $scope.monsters = [];
+  $scope.monster = {};
+    $scope.monstersaddrow = function(){  
+    $scope.monsters.push({ 'mname':$scope.monster.mname, 'mhitpoints':$scope.monster.mhitpoints, 'mattack':$scope.monster.mattack, 'mdefence':$scope.monster.mdefence });
+    console.log($scope.monsters);
+  };
 
 
 //Creating JSON object for the Encounters of a new Campaign

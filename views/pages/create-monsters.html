@@ -1,57 +1,39 @@
-<div id="create-monsters-container">
+<div id="create-monsters-container" class="container">
+	<h1>Monsters</h1>
+	<form ng-submit="monstersaddrow()">
+        <label>Monsters Name/Race</label>
+        <input type="text" name="mname" ng-model="monster.mname"></input>
+        <label>Hit Points</label>
+        <input type="text" name="mhitpoints" ng-model="monster.mhitpoints"></input><br>
+        <label>Attack</label>
+        <input type="text" name="mattack" ng-model="monster.mattack"></input>
+        <label>Defence</label>
+        <input type="text" name="mdefence" ng-model="monster.mdefence"></input>
+		<input  type="submit" class="btn btn-default" value="Add Row"></input>
+	</form>
 
-		<!-- <script src="../../scripts/imports/jquery-3.0.0.min.js"></script> -->
-		<form id="monform">
-			<h1>Monsters<h1>
-				<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <input type="text" name="TableName" value="Table Name"> <br> -->
-					<table id="monTable">
-	            <tr id="monHeader">
-	                <td>
-										<p>Race</p>
-												<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-	                    <!--<input type="text" placeholder="Attribute" name="col"/> -->
-									</td>
-									<td>
-										<p>Name</p>
-									</td>
-									<td>
-										<p>Hit Points</p>
-									</td>
-									<td>
-										<p>Attack</p>
-									</td>
-									<td>
-										<p>Defence</p>
-									</td>
-	            </tr>
-	            <tr id="monRow">
-	                <td>
-	                    <input type="text" placeholder="Object" name="row"/>
-	                </td>
-									<td>
-											<input type="text" placeholder="Object" name="row"/>
-									</td>
-									<td>
-											<input type="text" placeholder="Object" name="row"/>
-									</td>
-									<td>
-											<input type="text" placeholder="Object" name="row"/>
-									</td>
-									<td>
-											<input type="text" placeholder="Object" name="row"/>
-									</td>
-	            </tr>
-	    		</table>
+<!-- Need to add a "save table" button -->
 
-					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <button type="button" id="btnAddCol">Add Column</button> -->
-	    <button ng-click="appendToMon()" type="button" id="monAdd">Add Row</button></br></br>
-
-			<input type="submit" value="Save Table"></input>
-					<!-- THIS IS FOR WHEN WE ADD UNKNOWN ATTRIBUTES -->
-			<!-- <button type="button" onclick="alert('Do you wish to delete this current table?')">Remove Table</button> -->
-			<!-- <button type="button" onclick="alert('Do you wish to create a new table? Be sure to save your current one!')">Create New table</button> -->
-			<button type="button">Start Enounter Creation</button>
-		</form>
+    <table class="table">
+    <tr>
+        <th>Name/Race
+        </th>
+        <th>Hit Points
+        </th>
+        <th>Attack
+        </th>
+        <th>Defence
+        </th>
+    </tr>
+    <tr ng-repeat="monster in monsters">
+        <td>{{monster.mname}}
+        </td>
+        <td>{{monster.mhitpoints}}
+        </td>
+        <td>{{monster.mattack}}
+        </td>
+        <td>{{monster.mdefence}}
+        </td>
+    </tr>
+</table>
 </div>
