@@ -15,7 +15,7 @@ angular.module('dm')
 	}
 
 
-//Creating JSON object for the General information for a new Campaign
+//Creating GENERAL-INFO JSON object for a new Campaign
 	var campaigngeneraljson = {
 		'title':'',
 		'author':'',
@@ -27,21 +27,13 @@ angular.module('dm')
 	$scope.campauthor = '';
 	$scope.camptheme = '';
 	$scope.campdisc = '';
-    $scope.generalsubmit = function() {
-        if ($scope.camptitle) {
-          campaigngeneraljson.title = this.camptitle;
-        }
-        if ($scope.campauthor) {
-          campaigngeneraljson.author = this.campauthor;
-        }
-        if ($scope.camptheme) {
-          campaigngeneraljson.theme = this.camptheme;
-        }
-        if ($scope.campdisc) {
-          campaigngeneraljson.discription = this.campdisc;
-        }
-        console.log(campaigngeneraljson);
-    };
+  $scope.generalsubmit = function() {
+    campaigngeneraljson.title = this.camptitle;
+    campaigngeneraljson.author = this.campauthor;
+    campaigngeneraljson.theme = this.camptheme;
+    campaigngeneraljson.discription = this.campdisc;
+    console.log(campaigngeneraljson);
+  };
 
 //Creating JSON object for the Monsters and Locations information for a new Campaign
 
@@ -58,13 +50,13 @@ angular.module('dm')
 //Monsters
   $scope.monsters = [];
   $scope.monster = {};
-    $scope.monstersaddrow = function(){  
+  $scope.monstersaddrow = function(){  
     $scope.monsters.push({ 'mname':$scope.monster.mname, 'mhitpoints':$scope.monster.mhitpoints, 'mattack':$scope.monster.mattack, 'mdefence':$scope.monster.mdefence });
     console.log($scope.monsters);
   };
 
 
-//Creating JSON object for the Encounters of a new Campaign
+//Creating ENCOUNTERS JSON object for a new Campaign
 	var encountersjson = [
 		{
 			'encounterinfo': {
@@ -80,23 +72,11 @@ angular.module('dm')
 	$scope.enctrname = 'Encounter at Farpoint';
 	$scope.enctrdmnotes = 'Dont read this to those little fuckers';
 	$scope.enctrreadaloud = 'Now you can read this to the little shits';
-    $scope.enctrsubmit = function() {
-        if ($scope.enctrname) {
-          encountersjson.title = this.enctrname;
-        }
-        if ($scope.enctrdmnotes) {
-          encountersjson.author = this.enctrdmnotes;
-        }
-        if ($scope.enctrreadaloud) {
-          encountersjson.discription = this.enctrreadaloud;
-        }
-        console.log(encountersjson);
-    };
-
-
-	$scope.appendToMon = function() {
-		var first_row = $('#monRow');
-		first_row.clone().appendTo('#monTable');
-	}
+  $scope.enctrsubmit = function() {
+    encountersjson.title = this.enctrname;
+    encountersjson.author = this.enctrdmnotes;
+    encountersjson.discription = this.enctrreadaloud;
+    console.log(encountersjson);
+  };
 
 }]);
