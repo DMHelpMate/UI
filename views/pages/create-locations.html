@@ -1,10 +1,10 @@
-<div id="create-locations-container">
+<div id="create-locations-container" class="container">
 	<h1>Locations</h1>
 	<form ng-submit="addrow()">
         <label>Location Name</label>
-        <input type="text" name="locationname" ng-model="locationname"></input>
+        <input type="text" name="lname" ng-model="location.name"></input>
         <label>Discription of the Location</label>
-        <input type="text" name="locationdiscription" ng-model="locationdiscription"></input>
+        <input type="text" name="locationdiscription" ng-model="location.discription"></input>
     	<!-- <button ng-click="appendToLoc()" type="button" class="btn btn-default" id="locAdd">Add Row</button><br /><br /> -->
 		<input  type="submit" class="btn btn-default" value="Add Row"></input>
 	</form>
@@ -17,9 +17,9 @@
         </th>
     </tr>
     <tr ng-repeat="location in locations">
-        <td>{{location.locationname}}
+        <td>{{location.name}}
         </td>
-        <td>{{location.locationdiscription}}
+        <td>{{location.discription}}
         </td>
     </tr>
 </table>

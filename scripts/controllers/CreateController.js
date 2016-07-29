@@ -47,14 +47,10 @@ angular.module('dm')
 
 //Locations
     $scope.locations = [];
-
+    $scope.location = {};
     $scope.addrow = function(){  
-    console.log("name="+$scope.locationname); 
-    console.log("disc="+$scope.locationdiscription); 
-      $scope.locations.push({ 'name':$scope.locationname, 'discription':$scope.locationdiscription });
+      $scope.locations.push({ 'name':$scope.location.name, 'discription':$scope.location.discription });
       console.log($scope.locations);
-      // $scope.locationname='';
-      // $scope.locationdiscription='';
     };
 
 
