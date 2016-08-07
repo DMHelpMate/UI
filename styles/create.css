@@ -13,14 +13,6 @@ body {
     transition: all 0.5s ease;
 }
 
-#main-create-container input[type="text"] {
-    color: black;
-}
-
-#main-create-container textarea {
-    color: black;
-}
-
 /*These move the page over, when the menu is toggled*/
 #main-create-container #create-wrapper.toggled {
     padding-left: 150px;
@@ -114,6 +106,20 @@ body {
     text-decoration: underline;
     background: none;
 }
+
+/*Specific issues fixed BELOW*/
+#main-create-container input[type="text"] {
+    color: black;
+}
+
+#main-create-container input[type="number"] {
+    color: black;
+}
+
+#main-create-container textarea {
+    color: black;
+}
+/*Specific issues fixed ABOVE*/
 
 #main-create-container @media(min-width:768px) {
     #main-create-container #create-wrapper {

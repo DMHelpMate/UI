@@ -22,11 +22,6 @@ angular.module('dm')
 		'theme':'',
 		'discription':''
 	}
-
-	$scope.camptitle = '';
-	$scope.campauthor = '';
-	$scope.camptheme = '';
-	$scope.campdisc = '';
   $scope.generalsubmit = function() {
     campaigngeneraljson.title = this.camptitle;
     campaigngeneraljson.author = this.campauthor;
@@ -57,17 +52,24 @@ angular.module('dm')
 
 
 //Creating ENCOUNTERS JSON object for a new Campaign
+
 	var encountersjson = [
 		{
 			'encounterinfo': {
 				'name':'',
+        'location': '',
 				'dmnotes':'',
 				'readaloud':''
 			},
-			'location': [],
 			'monsters':[]
 		}
 	]
+
+  $scope.enctrmonsters = [];
+  $scope.enctrmonster = {
+    'enctmonster': '',
+    'mcount': ''
+  };
 
 	$scope.enctrname = 'Encounter at Farpoint';
 	$scope.enctrdmnotes = 'Dont read this to those little fuckers';
@@ -76,7 +78,26 @@ angular.module('dm')
     encountersjson.title = this.enctrname;
     encountersjson.author = this.enctrdmnotes;
     encountersjson.discription = this.enctrreadaloud;
+    encountersjson.location = this.selectencounterlocation;
     console.log(encountersjson);
   };
+  $scope.addmonstertoencounter = function(){  
+    $scope.enctrmonster.enctmonster = this.selectencountermonster;
+    $scope.enctrmonster.mcount = this.enctrmonsterscount;
+    console.log($scope.enctrmonster);
+    $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
+    console.log($scope.enctrmonsters);
+  };
+
+
+  //CREATION OF THE CAMPAIGN JSON OBJECT
+
+  var campaign = {
+    'general' : campaigngeneraljson,
+    'encounters' : encountersjson
+  }
+  $scope.createcampaign = function() {
+
+  }
 
 }]);
