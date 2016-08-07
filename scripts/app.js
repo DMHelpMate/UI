@@ -21,6 +21,10 @@
 			controller: 'BrowseController',
 			templateUrl: '../views/pages/browse.html',
 		})
+		.when('/admin', {
+			controller: 'AdminController',
+			templateUrl: '../views/pages/admin.html'
+		})
 
 		.otherwise({redirectTo: '/'});
 	}]);
