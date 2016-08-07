@@ -27,5 +27,7 @@ angular.module('dm')
 				do {
 					localStorage.setItem('user-hash', createHash());
 				} while (!hashIsAvailable(localStorage.getItem('user-hash')));
+			}
+		}
 	}
 }]);
