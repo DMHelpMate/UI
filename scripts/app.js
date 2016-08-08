@@ -4,7 +4,8 @@
 		$routeProvider
 
 		.when('/', {
-			templateUrl: '../views/pages/home.html'
+			templateUrl: '../views/pages/home.html',
+			controller: 'HomeController'
 		})
 
 		.when('/play', {
@@ -21,6 +22,7 @@
 			controller: 'BrowseController',
 			templateUrl: '../views/pages/browse.html',
 		})
+
 		.when('/admin', {
 			controller: 'AdminController',
 			templateUrl: '../views/pages/admin.html'
