@@ -16,6 +16,7 @@ angular.module('dm')
 
 
 //Creating GENERAL-INFO JSON object for a new Campaign
+$scope.generalcomplete = true;
 	var campaigngeneraljson = {
 		'title':'',
 		'author':'',
@@ -28,6 +29,7 @@ angular.module('dm')
     campaigngeneraljson.theme = this.camptheme;
     campaigngeneraljson.discription = this.campdisc;
     console.log(campaigngeneraljson);
+    campaigngeneraljson = {};
   };
 
 //Creating JSON object for the Monsters and Locations information for a new Campaign
@@ -38,6 +40,7 @@ angular.module('dm')
   $scope.locationsaddrow = function(){  
     $scope.locations.push({ 'lname':$scope.location.lname, 'ldiscription':$scope.location.ldiscription });
     console.log($scope.locations);
+    $scope.location = {};
   };
 
 
@@ -48,6 +51,7 @@ angular.module('dm')
   $scope.monstersaddrow = function(){  
     $scope.monsters.push({ 'mname':$scope.monster.mname, 'mhitpoints':$scope.monster.mhitpoints, 'mattack':$scope.monster.mattack, 'mdefence':$scope.monster.mdefence });
     console.log($scope.monsters);
+    $scope.monster = {};
   };
 
 
@@ -65,36 +69,34 @@ angular.module('dm')
 		}
 	]
 
-  $scope.enctrmonsters = [];
-  $scope.enctrmonster = {
-    'enctmonster': '',
-    'mcount': ''
-  };
-
-	$scope.enctrname = 'Encounter at Farpoint';
-	$scope.enctrdmnotes = 'Dont read this to those little fuckers';
-	$scope.enctrreadaloud = 'Now you can read this to the little shits';
   $scope.enctrsubmit = function() {
     encountersjson.title = this.enctrname;
     encountersjson.author = this.enctrdmnotes;
     encountersjson.discription = this.enctrreadaloud;
     encountersjson.location = this.selectencounterlocation;
     console.log(encountersjson);
+    $scope.campaigncomplete = false;
   };
+
+  //Add Monsters to the Encounter
+  $scope.enctrmonsters = [];
+  $scope.enctrmonster = {};
   $scope.addmonstertoencounter = function(){  
-    $scope.enctrmonster.enctmonster = this.selectencountermonster;
+    $scope.enctrmonster.monster = this.selectencountermonster;
     $scope.enctrmonster.mcount = this.enctrmonsterscount;
-    console.log($scope.enctrmonster);
     $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
+    $scope.enctrmonster = {};
     console.log($scope.enctrmonsters);
   };
 
 
   //CREATION OF THE CAMPAIGN JSON OBJECT
+  $scope.campaigncomplete = true;
 
   var campaign = {
+    //'_id' : ObjectId(localStorage.getItem('user-hash')+”_”+campaign.name),
     'general' : campaigngeneraljson,
-    'encounters' : encountersjson
+    'encounters' : []
   }
   $scope.createcampaign = function() {
 

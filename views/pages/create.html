@@ -1,10 +1,10 @@
 <!-- Starting with the General Info page -->
 <div id="main-create-container" class="container">
-	<h1>Create a Campaign to play later with Friends!</h1>
+	<h1>Create a Campaign to play later with Friends!&emsp;&emsp;&emsp;<input  type="submit" class="btn btn-default" value="Create This Campaign" ng-disabled="campaigncomplete"></input></h1>
     <div id="create-wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper"> <!-- Not actually needed anymore. Can delet This Div Later -->
             <ul class="sidebar-nav">
                 <li class="sidebar-title"><b>Campaign Creation</b></li>
 
@@ -25,7 +25,7 @@
                 <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
                     Encounters<i class="fa fa-plus-square-o"></i>
                 </li>
-                <div id="encounterlist" class="collapse in">
+                <div id="encounterlist" class="collapse in"> <!-- ng-repeat="encounter in encountersjson" -->
                     <li id="create-encounters" ng-click="setActive($event)" >
                         Encounter 1
                     </li>
@@ -33,8 +33,6 @@
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
-
-        <a href="#create-menu-toggle" class="btn btn-default" id="create-menu-toggle">Toggle Menu</a>
 
         <!-- Page Content -->
         <div class="container">
@@ -47,11 +45,4 @@
 
     </div>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#create-menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#create-wrapper").toggleClass("toggled");
-    });
-    </script>
 </div>

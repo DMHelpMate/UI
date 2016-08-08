@@ -1,14 +1,14 @@
 <div id="create-generalinfo-container" class="container">
 	<form id="campgeninput" ng-submit="generalsubmit()">
 	  Name/Title of Campaign:<br>
-	  <input type="text" ng-model="camptitle"><br>
+	  <input type="text" ng-model="camptitle" required><br>
 	  Author (your id):<br>
-	  <input type="text" ng-model="campauthor"><br>
+	  <input type="text" ng-model="campauthor" required><br>
 	  Theme of Campaign:<br>
-	  <input type="text" ng-model="camptheme"><br>
+	  <input type="text" ng-model="camptheme" required><br>
 	  Short Discription:<br>
-	  <textarea id="campdisc" ng-model="campdisc" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br>
+	  <textarea id="campdisc" ng-model="campdisc" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required></textarea><br>
 	  <br>
-	  <input type="submit" class="btn btn-default" value="Submit Campaign General Info" />
+	  <input type="submit" class="btn btn-default" value="Submit Campaign General Info" ng-disabled="campgeninput.$invalid"/>
 	</form>
 </div>

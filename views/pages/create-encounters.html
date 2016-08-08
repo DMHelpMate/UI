@@ -1,6 +1,6 @@
 <div id="create-encounters-container" class="container">
 <h1>Now it is Time to Create your Encounters</h1>
-	<!-- <form ng-submit="enctrsubmit()"> -->
+	<form ng-submit="enctrsubmit()">
 		Name/Title of Encounter:<br>
 		<input type="text" ng-model="enctertitle"><br>
 		Select a Location for your Encounter:<br>
@@ -12,11 +12,11 @@
 		<!-- monsters -->
 		Select the monsters for this Encounter:<br>
 		Monster Name/Race:<br>
-		<form ng-submit="addmonstertoencounter()">
+		<ng-form ng-click="addmonstertoencounter()">
 			<select name="monsterselect" id="monsterselect" ng-model="selectencountermonster" ng-options="monster.mname for monster in monsters" ></select><input type="number" name="monstercount" ng-model="enctrmonsterscount"
 		    min="0" max="99" required><br><br>
-			<input type="submit" class="btn btn-default" value="Add Monsters to this Encounter" /><br>
-		</form>
+			<input type="button" class="btn btn-default" value="Add Monsters to this Encounter" /><br>
+		</ng-form>
 		<table class="table">
         <tr>
             <th>Monster
@@ -24,14 +24,14 @@
             <th>Count
             </th>
         </tr>
-        <tr ng-repeat="monster in enctrmonsters">
-            <td>{{monster.enctmonster}}
+        <tr ng-repeat="monstermain in enctrmonsters">
+            <td>{{monstermain.enctmonster.monster.mname}}
             </td>
-            <td>{{monster.mcount}}
+            <td>{{monstermain.enctmonster.mcount}}
             </td>
         </tr>
     </table>
 		<br>
 		<input type="submit" class="btn btn-default" value="Submit Encounter" />
-	<!-- </form> -->
+	</form>
 </div>

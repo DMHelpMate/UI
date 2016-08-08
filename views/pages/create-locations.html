@@ -1,16 +1,16 @@
 <div id="create-locations-container" class="container">
 	<h1>Locations</h1>
 	<form ng-submit="locationsaddrow()">
-        <label>Location Name</label>
-        <input type="text" name="lname" ng-model="location.lname"></input>
-        <label>Discription of the Location</label>
-        <input type="text" name="ldiscription" ng-model="location.ldiscription"></input>
-		<input  type="submit" class="btn btn-default" value="Add Row"></input>
+        <label>Location Name:</label>
+        <input type="text" name="lname" ng-model="location.lname" required ></input><br><br>
+        <label>Discription of the Location</label><br>
+        <input type="text" name="ldiscription" ng-model="location.ldiscription" required></input><br><br>
+		<input  type="submit" class="btn btn-default" value="Add This Location" ng-disabled="locationsaddrow.$invalid"></input>
 	</form>
 
 <!-- Need to add a "save table" button -->
 
-    <table class="table">
+    <br><table class="table">
         <tr>
             <th>Name
             </th>

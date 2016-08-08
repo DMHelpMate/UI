@@ -14,10 +14,10 @@ body {
 }
 
 /*These move the page over, when the menu is toggled*/
-#main-create-container #create-wrapper.toggled {
+#main-create-container #create-wrapper {
     padding-left: 150px;
 }
-#main-create-container #create-wrapper.toggled #sidebar-wrapper {
+#main-create-container #create-wrapper #sidebar-wrapper {
     width: 250px;
 }
 
@@ -119,6 +119,11 @@ body {
 #main-create-container textarea {
     color: black;
 }
+
+#main-create-container select {
+    color: black;
+}
+
 /*Specific issues fixed ABOVE*/
 
 #main-create-container @media(min-width:768px) {
@@ -126,7 +131,7 @@ body {
         padding-left: 100px;
     }
 
-    #main-create-container #create-wrapper.toggled {
+    #main-create-container #create-wrapper {
         padding-left: 0;
     }
 
@@ -134,7 +139,7 @@ body {
         width: 250px;
     }
 
-    #main-create-container #create-wrapper.toggled #sidebar-wrapper {
+    #main-create-container #create-wrapper #sidebar-wrapper {
         width: 0;
     }
 
