@@ -2,20 +2,20 @@
 <h1>Now it is Time to Create your Encounters</h1>
 	<form ng-submit="enctrsubmit()">
 		Name/Title of Encounter:<br>
-		<input type="text" ng-model="enctertitle"><br>
+		<input type="text" ng-model="enctertitle" required ><br>
 		Select a Location for your Encounter:<br>
-		<select name="localselect" id="localselect" ng-model="selectencounterlocation" ng-options="location.lname for location in locations" ></select><br><br>
+		<select name="localselect" id="localselect" ng-model="selectencounterlocation" ng-options="location.lname for location in locations" required ></select><br><br>
 		Add your DM Notes for this Encounter:<br>
-		<textarea id="encterdmnotes" ng-model="encterdmnotes" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br><br>
+		<textarea id="encterdmnotes" ng-model="encterdmnotes" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required ></textarea><br><br>
 		Read Aloud Text:<br>
-		<textarea id="encterreadaloud" ng-model="encterreadaloud" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br><br>
+		<textarea id="encterreadaloud" ng-model="encterreadaloud" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required ></textarea><br><br>
 		<!-- monsters -->
 		Select the monsters for this Encounter:<br>
 		Monster Name/Race:<br>
 		<ng-form ng-click="addmonstertoencounter()">
 			<select name="monsterselect" id="monsterselect" ng-model="selectencountermonster" ng-options="monster.mname for monster in monsters" ></select><input type="number" name="monstercount" ng-model="enctrmonsterscount"
-		    min="0" max="99" required><br><br>
-			<input type="button" class="btn btn-default" value="Add Monsters to this Encounter" /><br>
+		    min="0" max="99" ><br><br>
+			<input type="button" class="btn btn-default" value="Add Monsters to this Encounter"/><br>
 		</ng-form>
 		<table class="table">
         <tr>
@@ -32,6 +32,6 @@
         </tr>
     </table>
 		<br>
-		<input type="submit" class="btn btn-default" value="Submit Encounter" />
+		<input type="submit" class="btn btn-default" value="Submit Encounter" ng-disabled="enctrsubmit.$invalid" />
 	</form>
 </div>

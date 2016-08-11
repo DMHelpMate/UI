@@ -14,15 +14,14 @@ angular.module('dm')
 		$scope.activeClass = event.target.id;
 	}
 
+  //Figure out if General is set or not
+  $scope.checkGeneral = function () {
+
+  }
+
 
 //Creating GENERAL-INFO JSON object for a new Campaign
-$scope.generalcomplete = true;
-	var campaigngeneraljson = {
-		'title':'',
-		'author':'',
-		'theme':'',
-		'discription':''
-	}
+	$scope.campaigngeneraljson = {};
   $scope.generalsubmit = function() {
     campaigngeneraljson.title = this.camptitle;
     campaigngeneraljson.author = this.campauthor;
@@ -38,7 +37,10 @@ $scope.generalcomplete = true;
   $scope.locations = [];
   $scope.location = {};
   $scope.locationsaddrow = function(){  
-    $scope.locations.push({ 'lname':$scope.location.lname, 'ldiscription':$scope.location.ldiscription });
+    $scope.locations.push({ 
+      'lname':$scope.location.lname, 
+      'ldiscription':$scope.location.ldiscription 
+    });
     console.log($scope.locations);
     $scope.location = {};
   };
@@ -49,10 +51,22 @@ $scope.generalcomplete = true;
   $scope.monsters = [];
   $scope.monster = {};
   $scope.monstersaddrow = function(){  
-    $scope.monsters.push({ 'mname':$scope.monster.mname, 'mhitpoints':$scope.monster.mhitpoints, 'mattack':$scope.monster.mattack, 'mdefence':$scope.monster.mdefence });
+    var mon_id = localStorage.getItem('user-hash')+'_'+$scope.monster.mname;
+    $scope.monsters.push({ 
+      'mon_id':mon_id,
+      'mname':$scope.monster.mname, 
+      'mhitpoints':$scope.monster.mhitpoints, 
+      'mattack':$scope.monster.mattack, 
+      'mdefence':$scope.monster.mdefence 
+    });
     console.log($scope.monsters);
     $scope.monster = {};
   };
+
+  $scope.hidemonsters = function(){
+    $scope.addmonsters = !$scope.addmonsters;
+    $scope.monsterssaved = true;
+  }
 
 
 //Creating ENCOUNTERS JSON object for a new Campaign
@@ -70,6 +84,9 @@ $scope.generalcomplete = true;
 	]
 
   $scope.enctrsubmit = function() {
+    var enctid = localStorage.getItem('user-hash')+'_'+encountersjson.title;
+
+    encountersjson.enct_id = enctid;
     encountersjson.title = this.enctrname;
     encountersjson.author = this.enctrdmnotes;
     encountersjson.discription = this.enctrreadaloud;
@@ -90,14 +107,20 @@ $scope.generalcomplete = true;
   };
 
 
+  //Craete Campaign
+    // - No more edits
+    // - All Tables are Final
+    // - Monsters collection gets created
+    // - all other collections get created
+
   //CREATION OF THE CAMPAIGN JSON OBJECT
   $scope.campaigncomplete = true;
 
-  var campaign = {
-    //'_id' : ObjectId(localStorage.getItem('user-hash')+”_”+campaign.name),
-    'general' : campaigngeneraljson,
-    'encounters' : []
-  }
+  // var campaign = {
+  //   'camp_id' : localStorage.getItem('user-hash')+'_'+campaigngeneraljson.title,
+  //   'general' : campaigngeneraljson,
+  //   'encounters' : []
+  // }
   $scope.createcampaign = function() {
 
   }
