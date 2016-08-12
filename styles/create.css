@@ -107,6 +107,11 @@ body {
     background: none;
 }
 
+/*General Info Page*/
+#main-create-container h3 {
+    color: violet;
+}
+
 /*Specific issues fixed BELOW*/
 #main-create-container input[type="text"] {
     color: black;

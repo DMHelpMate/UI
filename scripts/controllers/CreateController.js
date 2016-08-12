@@ -21,15 +21,18 @@ angular.module('dm')
 
 
 //Creating GENERAL-INFO JSON object for a new Campaign
+  $scope.showgeneralinfo = true;
 	$scope.campaigngeneraljson = {};
   $scope.generalsubmit = function() {
-    campaigngeneraljson.title = this.camptitle;
-    campaigngeneraljson.author = this.campauthor;
-    campaigngeneraljson.theme = this.camptheme;
-    campaigngeneraljson.discription = this.campdisc;
-    console.log(campaigngeneraljson);
-    
-    campaigngeneraljson = {};
+    $scope.campaigngeneraljson.title = this.camptitle;
+    $scope.campaigngeneraljson.author = this.campauthor;
+    $scope.campaigngeneraljson.theme = this.camptheme;
+    $scope.campaigngeneraljson.discription = this.campdisc;
+    console.log($scope.campaigngeneraljson);
+    $scope.showgeneralinfo = false;
+    $scope.addgenralinfo = true;
+
+    //hide the form and show the data
   };
 
 //Creating JSON object for the Monsters and Locations information for a new Campaign
@@ -66,7 +69,7 @@ angular.module('dm')
       'mname':$scope.monster.mname, 
       'mhitpoints':$scope.monster.mhitpoints, 
       'mattack':$scope.monster.mattack, 
-      'mdefence':$scope.monster.mdefence 
+      'mdefense':$scope.monster.mdefense 
     });
     console.log($scope.monsters);
     $scope.monster = {};
