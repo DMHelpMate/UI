@@ -28,6 +28,7 @@ angular.module('dm')
     campaigngeneraljson.theme = this.camptheme;
     campaigngeneraljson.discription = this.campdisc;
     console.log(campaigngeneraljson);
+    
     campaigngeneraljson = {};
   };
 
@@ -44,6 +45,14 @@ angular.module('dm')
     console.log($scope.locations);
     $scope.location = {};
   };
+
+//Save and Finish creating locations table
+  $scope.hidelocations = function(){
+    if ($scope.locations.length > 0) {
+      $scope.addlocations = !$scope.addlocations;
+      $scope.locationssaved = true;
+    }
+  }
 
 
 
@@ -63,9 +72,16 @@ angular.module('dm')
     $scope.monster = {};
   };
 
+//Save and Finish creating monsters table, and send the array of monsters to the api for inserting into the db
   $scope.hidemonsters = function(){
-    $scope.addmonsters = !$scope.addmonsters;
-    $scope.monsterssaved = true;
+    if ($scope.monsters.length > 0) {
+      var data = $scope.monsters;
+      $scope.addmonsters = !$scope.addmonsters;
+      $scope.monsterssaved = true;
+      $http.post('http://api.unicornrampage.com/monsters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+        console.log('success');
+      });
+    }
   }
 
 
@@ -116,11 +132,11 @@ angular.module('dm')
   //CREATION OF THE CAMPAIGN JSON OBJECT
   $scope.campaigncomplete = true;
 
-  // var campaign = {
-  //   'camp_id' : localStorage.getItem('user-hash')+'_'+campaigngeneraljson.title,
-  //   'general' : campaigngeneraljson,
-  //   'encounters' : []
-  // }
+  var campaign = {
+    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.title,
+    'general' : $scope.campaigngeneraljson,
+    'encounters' : []
+  }
   $scope.createcampaign = function() {
 
   }
