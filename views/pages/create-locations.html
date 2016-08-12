@@ -5,7 +5,7 @@
             <label>Location Name:</label>
             <input type="text" name="lname" ng-model="location.lname" required ></input><br><br>
             <label>Discription of the Location</label><br>
-            <input type="text" name="ldiscription" ng-model="location.ldiscription" required></input><br><br>
+            <textarea id="locationdisc" name="ldiscription" ng-model="location.ldiscription" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required></textarea><br><br>
     		<input  type="submit" class="btn btn-default" value="Add This Location" ng-disabled="locationsaddrow.$invalid"></input>
     	</form>
     </div>

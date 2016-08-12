@@ -15,8 +15,11 @@ angular.module('dm')
 	}
 
   //Figure out if General is set or not
+  generalinfodone = true;
   $scope.checkGeneral = function () {
-
+    if (addgenralinfo) {
+      generalinfodone = false;
+    }
   }
 
 
@@ -106,9 +109,9 @@ angular.module('dm')
     var enctid = localStorage.getItem('user-hash')+'_'+encountersjson.title;
 
     encountersjson.enct_id = enctid;
-    encountersjson.title = this.enctrname;
-    encountersjson.author = this.enctrdmnotes;
-    encountersjson.discription = this.enctrreadaloud;
+    encountersjson.title = this.enctertitle;
+    encountersjson.author = this.encterdmnotes;
+    encountersjson.discription = this.encterreadaloud;
     encountersjson.location = this.selectencounterlocation;
     console.log(encountersjson);
     $scope.campaigncomplete = false;
@@ -117,9 +120,19 @@ angular.module('dm')
   //Add Monsters to the Encounter
   $scope.enctrmonsters = [];
   $scope.enctrmonster = {};
-  $scope.addmonstertoencounter = function(){  
-    $scope.enctrmonster.monster = this.selectencountermonster;
-    $scope.enctrmonster.mcount = this.enctrmonsterscount;
+  $scope.checkmonster = function(){  
+    if (undefined != this.selectencountermonster && (this.enctrmonsterscount > 0)) {
+      $scope.addmonstertoencounter(this.selectencountermonster, this.enctrmonsterscount);
+    }
+  };
+  $scope.addmonstertoencounter = function(monster, count){  
+
+    console.log("inside add");
+    console.log("monster="+ monster);
+    console.log("count="+ count);
+    
+    $scope.enctrmonster.monster = monster;
+    $scope.enctrmonster.mcount = count;
     $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
     $scope.enctrmonster = {};
     console.log($scope.enctrmonsters);
