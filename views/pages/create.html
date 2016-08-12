@@ -7,7 +7,6 @@
         <div id="sidebar-wrapper"> <!-- Not actually needed anymore. Can delet This Div Later -->
             <ul class="sidebar-nav">
                 <li class="sidebar-title"><b>Campaign Creation</b></li>
-
                 <li id="create-general" ng-click="setActive($event)" class="sidebar-header">
                     General Info
                 </li>
@@ -22,14 +21,20 @@
                         Monsters
                     </li>
                 </div>
+                <div class="encounterbutton">
+                    <li id="create-encounters" class="btn btn-default" ng-click="setActive($event)" >
+                        Add Encounter
+                    </li>
+                </div>
                 <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
                     Encounters<i class="fa fa-plus-square-o"></i>
                 </li>
-                <div id="encounterlist" class="collapse in"> <!-- ng-repeat="encounter in encountersjson" -->
+                <!-- ng-repeat="encounter in encountersjson" -->
+                <!-- <div id="encounterlist" class="collapse in"> 
                     <li id="create-encounters" ng-click="setActive($event)" >
                         Encounter 1
                     </li>
-                </div>
+                </div> -->
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

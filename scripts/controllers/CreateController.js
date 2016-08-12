@@ -24,6 +24,7 @@ angular.module('dm')
     $scope.campaigngeneraljson.theme = this.camptheme;
     $scope.campaigngeneraljson.discription = this.campdisc;
     console.log($scope.campaigngeneraljson);
+    //Hide the input form and show the results
     $scope.showgeneralinfo = false;
     $scope.addgenralinfo = true;
   };

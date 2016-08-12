@@ -40,6 +40,15 @@ body {
 
 /* Sidebar Styles */
 
+#main-create-container .sidebar-nav #create-encounters {
+    height: 65px;
+    font-size: 22px;
+    line-height: 60px;
+    text-decoration: none;
+    color: white;
+    text-align: left;
+}
+
 #main-create-container .sidebar-nav {
     position: absolute;
     top: 0;
@@ -61,7 +70,7 @@ body {
 }
 
 #main-create-container .sidebar-nav li:hover {
-    text-decoration: none;
+    text-decoration: underline;
     color: #fff;
     background: rgba(255,255,255,0.2);
 }
@@ -76,30 +85,36 @@ body {
     font-size: 22px;
     line-height: 60px;
     background: none;
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-title {
     color: #fff;
     background: rgba(124, 2, 247,0.2);
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-title:hover {
     background: rgba(124, 2, 247,0.2);
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-header {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-header {
     color: #fff;
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-header:hover {
     background: rgba(255,255,255,0.2);
     border-style: solid;
+    text-decoration: none;
 }
 
 #main-create-container .sidebar-nav > .sidebar-item:hover {
