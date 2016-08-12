@@ -14,14 +14,6 @@ angular.module('dm')
 		$scope.activeClass = event.target.id;
 	}
 
-  //Figure out if General is set or not
-  generalinfodone = true;
-  $scope.checkGeneral = function () {
-    if (addgenralinfo) {
-      generalinfodone = false;
-    }
-  }
-
 
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
@@ -34,12 +26,10 @@ angular.module('dm')
     console.log($scope.campaigngeneraljson);
     $scope.showgeneralinfo = false;
     $scope.addgenralinfo = true;
-
-    //hide the form and show the data
   };
 
-//Creating JSON object for the Monsters and Locations information for a new Campaign
 
+//Creating JSON object for the Monsters and Locations information for a new Campaign
 //Locations
   $scope.locations = [];
   $scope.location = {};
@@ -59,8 +49,6 @@ angular.module('dm')
       $scope.locationssaved = true;
     }
   }
-
-
 
 //Monsters
   $scope.monsters = [];
@@ -138,12 +126,6 @@ angular.module('dm')
     console.log($scope.enctrmonsters);
   };
 
-
-  //Craete Campaign
-    // - No more edits
-    // - All Tables are Final
-    // - Monsters collection gets created
-    // - all other collections get created
 
   //CREATION OF THE CAMPAIGN JSON OBJECT
   $scope.campaigncomplete = true;
