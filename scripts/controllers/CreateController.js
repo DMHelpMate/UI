@@ -11,12 +11,30 @@ angular.module('dm')
 
 //Set the active var to an id
 	$scope.setActive = function (event) {
-		$scope.activeClass = event.target.id;
+    $scope.activeClass = event.target.id;
 	}
 
+  //Check if tables are ready to activate
+  $scope.checkGeneral = function (event) {
+    if ($scope.addgenralinfo) {
+      $scope.setActive(event);
+    } else {
+      alert("Must Save General Info First");
+    }
+  }
+
+  //Check if encounters are ready to activate
+  $scope.checkTables = function (event) {
+    if ($scope.locationssaved && $scope.monsterssaved) {
+      $scope.setActive(event);
+    } else {
+      alert("Must Save Monsters and Locations First");
+    }
+  }
 
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
+  $scope.addgenralinfo = false;
 	$scope.campaigngeneraljson = {};
   $scope.generalsubmit = function() {
     $scope.campaigngeneraljson.title = this.camptitle;

@@ -14,15 +14,15 @@
                     "Tables/Objects"<i class="fa fa-plus-square-o"></i>
                 </li>
                 <div id="tablelist" class="collapse in">
-                    <li id="create-locations" ng-click="setActive($event)" >
+                    <li id="create-locations" ng-click="checkGeneral($event)" ng-disabled="showgeneralinfo">
                         Locations
                     </li>
-                    <li id="create-monsters" ng-click="setActive($event)" >
+                    <li id="create-monsters" ng-click="checkGeneral($event)" ng-disabled="showgeneralinfo">
                         Monsters
                     </li>
                 </div>
                 <div class="encounterbutton">
-                    <li id="create-encounters" class="btn btn-default" ng-click="setActive($event)" >
+                    <li id="create-encounters" class="btn btn-default" ng-click="checkTables($event)" >
                         Add Encounter
                     </li>
                 </div>
