@@ -7,12 +7,12 @@ angular.module('dm')
 //Compare the param to active id
 	$scope.isActive = function (id) {;
 		return ($scope.activeClass === id);
-	}
+	};
 
 //Set the active var to an id
 	$scope.setActive = function (event) {
     $scope.activeClass = event.target.id;
-	}
+	};
 
   //Check if tables are ready to activate
   $scope.checkGeneral = function (event) {
@@ -21,7 +21,7 @@ angular.module('dm')
     } else {
       alert("Must Save General Info First");
     }
-  }
+  };
 
   //Check if encounters are ready to activate
   $scope.checkTables = function (event) {
@@ -30,7 +30,7 @@ angular.module('dm')
     } else {
       alert("Must Save Monsters and Locations First");
     }
-  }
+  };
 
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
@@ -67,7 +67,7 @@ angular.module('dm')
       $scope.addlocations = !$scope.addlocations;
       $scope.locationssaved = true;
     }
-  }
+  };
 
 //Monsters
   $scope.monsters = [];
@@ -95,56 +95,38 @@ angular.module('dm')
         console.log('success');
       });
     }
-  }
+  };
 
 
 //Creating ENCOUNTERS JSON object for a new Campaign
-
-	var encountersjson = [
-		{
-			'encounterinfo': {
-				'name':'',
-        'location': '',
-				'dmnotes':'',
-				'readaloud':''
-			},
-			'monsters':[]
-		}
-	]
+	$scope.encountersjson = [];
+  $scope.singleencounter = {};
 
   $scope.enctrsubmit = function() {
-    var enctid = localStorage.getItem('user-hash')+'_'+encountersjson.title;
-
-    encountersjson.enct_id = enctid;
-    encountersjson.title = this.enctertitle;
-    encountersjson.author = this.encterdmnotes;
-    encountersjson.discription = this.encterreadaloud;
-    encountersjson.location = this.selectencounterlocation;
-    console.log(encountersjson);
+    var enctid = localStorage.getItem('user-hash')+'_'+this.enctertitle;
+    $scope.singleencounter.enct_id = enctid;
+    $scope.singleencounter.title = this.enctertitle;
+    $scope.singleencounter.location = this.selectencounterlocation;
+    $scope.singleencounter.notes = this.encterdmnotes;
+    $scope.singleencounter.readaloud = this.encterreadaloud;
+    $scope.singleencounter.monsters = $scope.enctrmonsters;
+    console.log($scope.singleencounter);
+    $scope.singleencounter = {};
     $scope.campaigncomplete = false;
   };
 
   //Add Monsters to the Encounter
   $scope.enctrmonsters = [];
   $scope.enctrmonster = {};
-  $scope.checkmonster = function(){  
+  $scope.checkmonster = function() {  
     if (undefined != this.selectencountermonster && (this.enctrmonsterscount > 0)) {
-      $scope.addmonstertoencounter(this.selectencountermonster, this.enctrmonsterscount);
+      $scope.enctrmonster.monster = this.selectencountermonster;
+      $scope.enctrmonster.mcount = this.enctrmonsterscount;
+      $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
+      $scope.enctrmonster = {};
+      console.log($scope.enctrmonsters);
     }
   };
-  $scope.addmonstertoencounter = function(monster, count){  
-
-    console.log("inside add");
-    console.log("monster="+ monster);
-    console.log("count="+ count);
-    
-    $scope.enctrmonster.monster = monster;
-    $scope.enctrmonster.mcount = count;
-    $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
-    $scope.enctrmonster = {};
-    console.log($scope.enctrmonsters);
-  };
-
 
   //CREATION OF THE CAMPAIGN JSON OBJECT
   $scope.campaigncomplete = true;
