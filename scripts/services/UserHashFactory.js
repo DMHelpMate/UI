@@ -9,38 +9,44 @@ angular.module('dm')
 	}
 
 	// create randomized hash as mock guid
-	function createHash() {
-		function s4() {
-			var hex = '';
-			var char;
-			for (var i = 0; i < HASH_SIZE; i++) {
-				switch (hex) {
-					case 15:
-						hex += 'f';
-						break;
-					case 14:
-						hex += 'e';
-						break;
-					case 13:
-						hex += 'd';
-						break;
-					case 12:
-						hex += 'c';
-						break;
-					case 11:
-						hex += 'b';
-						break;
-					case 10:
-						hex += 'a';
-						break;
-					default:
-						hex += hex + '';
-						break;
-				}
-				return hex;
+	function createHash(loopAmount, callback) {
+		var hex = '';
+		var char;
+		for (var i = 0; i < loopAmount;) {
+			char = Math.round(Math.random() * 16);
+			switch (char) {
+				case 15:
+					hex += 'f';
+					i++;
+					break;
+				case 14:
+					hex += 'e';
+					i++;
+					break;
+				case 13:
+					hex += 'd';
+					i++;
+					break;
+				case 12:
+					hex += 'c';
+					i++;
+					break;
+				case 11:
+					hex += 'b';
+					i++;
+					break;
+				case 10:
+					hex += 'a';
+					i++;
+					break;
+				default:
+					hex += char + '';
+					i++;
+					break;
 			}
 		}
-		return s4();
+		hex = hex.substr(0, loopAmount);
+		callback(hex);
 	}
 
 	// create hash for user if needed
@@ -48,9 +54,17 @@ angular.module('dm')
 		createUserHash: function() {
 			if (!localStorage.getItem('user-hash')) {
 				do {
-					localStorage.setItem('user-hash', createHash());
-				} while (!hashIsAvailable(localStorage.getItem('user-hash')));
+					createHash(HASH_SIZE, function(hex) {
+						localStorage.setItem('user-hash', hex);
+					});
+				} while (!hashIsAvailable(localStorage.getItem('user-hash')))
 			}
+		},
+
+		createObjHash: function(callback) {
+			createHash(4, function(hex) {
+				callback(hex);
+			});
 		}
 	}
 }]);
