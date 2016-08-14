@@ -45,7 +45,7 @@ angular.module('dm')
     $scope.campaigngeneraljson.title = this.camptitle;
     $scope.campaigngeneraljson.author = this.campauthor;
     $scope.campaigngeneraljson.theme = this.camptheme;
-    $scope.campaigngeneraljson.discription = this.campdisc;
+    $scope.campaigngeneraljson.description = this.campdisc;
     console.log($scope.campaigngeneraljson);
     //Hide the input form and show the results
     $scope.showgeneralinfo = false;
@@ -60,7 +60,7 @@ angular.module('dm')
   $scope.locationsaddrow = function(){  
     $scope.locations.push({ 
       'name':$scope.location.name, 
-      'description':$scope.location.discription 
+      'description':$scope.location.description 
     });
     console.log($scope.locations);
     $scope.location = {};
@@ -158,14 +158,15 @@ angular.module('dm')
 
   //Add Monsters to the Encounter
   $scope.enctrmonsters = [];
+  $scope.viewmonsters = [];
   $scope.enctrmonster = {};
   $scope.checkmonster = function() {  
     if (undefined != this.selectencountermonster && (this.enctrmonsterscount > 0)) {
-      $scope.enctrmonster.mon_id = this.selectencountermonster.mon_id;
-      $scope.enctrmonster.quantity = this.enctrmonsterscount;
       $scope.enctrmonsters.push({ 'quantity':this.enctrmonsterscount, 'mon_id':this.selectencountermonster.mon_id });
+      $scope.viewmonsters.push({ 'quantity':this.enctrmonsterscount, 'name':this.selectencountermonster.mname });
       $scope.enctrmonster = {};
       console.log($scope.enctrmonsters);
+      console.log("view:"+JSON.stringify($scope.viewmonsters));
     }
   };
 
