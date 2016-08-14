@@ -13,8 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="brws-opt" ng-repeat="camp in campaigns track by $index">
-				<td id="camp.camp_id" ng-hide="true"></td>
+			<tr class="brws-opt" ng-repeat="camp in campaigns track by $index" ng-click="getFullCampaign(camp.camp_id)">
 				<td class="lft-brws-opt">{{camp.general.name}}</td>
 				<td>{{camp.general.author}}</td>
 				<td>{{camp.general.theme}}</td>

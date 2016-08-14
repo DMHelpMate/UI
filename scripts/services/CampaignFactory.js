@@ -8,6 +8,10 @@ angular.module ('dm')
 			localStorage.setItem ('play-camp-poss', poss);
 		},
 
+		setCamp: function(campaign) {
+			localStorage.setItem('play-campaign', campaign);
+		},
+
 		getCamp: function () { 
 			return $http ({
 				method: 'GET',

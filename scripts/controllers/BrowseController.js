@@ -1,3 +1,4 @@
+
 angular.module('dm')
 .controller('BrowseController', ['$http', '$location', '$scope', 'Campaign', function($http, $location, $scope, Campaign) {
 
@@ -41,7 +42,25 @@ angular.module('dm')
 	}).then(function(res) {
 		$scope.campaigns = res.data;
 		console.log($scope.campaigns);
+	}, function(err) {
+		console.log(err);
 	});
+
+	$scope.getFullCampaign = function(camp_id) {
+		$http({
+			method: 'GET',
+			url: 'http://api.unicornrampage.com/campaigns?camp_id=' + camp_id,
+			headers: {
+				'Cache-Control': 'no-cache',
+				'Pragma': 'no-cache'
+			}
+		}).then(function(res) {
+			console.log(res.data);
+			Campaign.setCamp(res.data);
+		}, function(err) {
+			console.log(err);
+		});
+	}
 
 	$scope.getID = function(camp_id , poss) {
 		Campaign.setID(camp_id, poss);
