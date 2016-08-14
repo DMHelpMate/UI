@@ -47,17 +47,19 @@ angular.module('dm')
 	});
 
 	$scope.getFullCampaign = function(camp_id) {
+		console.log('http://api.unicornrampage.com/campaigns?camp_id=' + camp_id);
 		$http({
 			method: 'GET',
 			url: 'http://api.unicornrampage.com/campaigns?camp_id=' + camp_id,
 			headers: {
 				'Cache-Control': 'no-cache',
-				'Pragma': 'no-cache'
+				'Pragma': 'no-cache',
+				'Content-Type': 'application/json'
 			}
 		}).then(function(res) {
-			console.log(res.data);
-			Campaign.setCamp(res.data);
-			$location.url('/play');
+			Campaign.setCamp(angular.toJson(res.data), function() {
+				$location.url('/play');
+			});
 		}, function(err) {
 			console.log(err);
 		});
