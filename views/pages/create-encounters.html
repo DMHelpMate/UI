@@ -1,17 +1,41 @@
-<div id="create-encounters-container">
+<div id="create-encounters-container" class="container">
 <h1>Now it is Time to Create your Encounters</h1>
 	<form ng-submit="enctrsubmit()">
-	  Name/Title of Encounter:<br>
-	  <input type="text" ng-model="enctertitle"><br>
-	  Add your DM Notes for this Encounter:<br>
-	  <input type="text" ng-model="encterdmnotes"><br>
-	  Read Aloud Text:<br>
-	  <textarea id="encterreadaloud" ng-model="encterreadaloud" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br><br>
-
-	  <select name="localselect" id="localselect" ng-model="locations">
-      <option ng-repeat="option in locations.availableOptions" value="{{option.id}}">{{option.name}}</option>
-      </select>
-
-	  <input type="submit" class="btn btn-default" value="Submit Encounter" />
+		Name/Title of Encounter:<br>
+		<input type="text" name="title" ng-model="singleencounter.title" required ><br>
+		Select a Location for your Encounter:<br>
+		<select name="location" ng-model="singleencounter.location" ng-options="location.name for location in locations" required >
+			<option value="">Select Location</option>
+		</select><br><br>
+		Add your DM Notes for this Encounter:<br>
+		<textarea name="notes" ng-model="singleencounter.notes" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required ></textarea><br><br>
+		Read Aloud Text:<br>
+		<textarea name="readaloud" ng-model="singleencounter.readaloud" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required ></textarea><br><br>
+		<!-- monsters -->
+		<h3>Select the monsters for this Encounter: (Optional)</h3><br>
+		<div id="addmonstertoencounter">
+			<select name="monsterselect" id="monsterselect" ng-model="selectencountermonster" ng-options="monster.mname for monster in monsters" >
+				<option value="">Select Monster</option>
+			</select><br>
+			Monster Count:<br>
+			<input type="number" name="monstercount" ng-model="enctrmonsterscount" min="0" max="99" ><br><br>
+			<input type="button" class="btn btn-default" value="Add Monsters to this Encounter" ng-click="checkmonster()" /><br>
+		</div>
+		<table class="table">
+        <tr>
+            <th>Monster
+            </th>
+            <th>Count
+            </th>
+        </tr>
+        <tr ng-repeat="monstermain in viewmonsters">
+            <td>{{monstermain.enctrmonster.name}}
+            </td>
+            <td>{{monstermain.quantity}}
+            </td>
+        </tr>
+    </table>
+		<br>
+		<input type="submit" class="btn btn-default" value="Submit Encounter" ng-disabled="enctrsubmit.$invalid" />
 	</form>
 </div>

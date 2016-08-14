@@ -1,14 +1,28 @@
 <div id="create-generalinfo-container" class="container">
-	<form id="campgeninput" ng-submit="generalsubmit()">
-	  Name/Title of Campaign:<br>
-	  <input type="text" ng-model="camptitle"><br>
-	  Author (your id):<br>
-	  <input type="text" ng-model="campauthor"><br>
-	  Theme of Campaign:<br>
-	  <input type="text" ng-model="camptheme"><br>
-	  Short Discription:<br>
-	  <textarea id="campdisc" ng-model="campdisc" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" ></textarea><br>
-	  <br>
-	  <input type="submit" class="btn btn-default" value="Submit Campaign General Info" />
-	</form>
+	<h1>General Information</h1>
+	<div ng-hide="addgenralinfo">
+		<form id="campgeninput" ng-submit="generalsubmit()">
+		  Name/Title of Campaign:<br>
+		  <input type="text" ng-model="camptitle" required><br>
+		  Author (your id):<br>
+		  <input type="text" ng-model="campauthor" required><br>
+		  Theme of Campaign:<br>
+		  <input type="text" ng-model="camptheme" required><br>
+		  Short Description:<br>
+		  <textarea id="campdisc" ng-model="campdisc" rows="5" md-maxlength="150" style="height: 135px; width: 359px; overflow:scroll" required></textarea><br>
+		  <br>
+		  <input type="submit" class="btn btn-default" value="Submit Campaign General Info" ng-disabled="campgeninput.$invalid"/>
+		</form>
+	</div>
+
+	<div id="showgeneralinfo" ng-hide="showgeneralinfo">
+		<h3>Name/Title of Campaign:</h3>
+		<p>{{campaigngeneraljson.title}}</p>
+		<h3>Author (your id):</h3>
+		<p>{{campaigngeneraljson.author}}</p>
+		<h3>Theme of Campaign:</h3>
+		<p>{{campaigngeneraljson.theme}}</p>
+		<h3>Short Description:</h3>
+		<p>{{campaigngeneraljson.description}}</p>
+	</div>
 </div>
