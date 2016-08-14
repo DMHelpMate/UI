@@ -1,17 +1,13 @@
 
-<div  ng-show="isActive('Encounter' + $index)" ng-repeat="encounter in camp.Encounters">
-	<div id="{{encounter.General.Name}}">
-		<h1>{{encounter.General.Name}}</h1>
-		<div ng-repeat="(key, val) in encounter">
-			<h2>{{key}}</h2>
-			<div ng-repeat="(key, val) in val" ng-if="!isObj(val)">
-				<p><span class="keyword">{{key}}</span> : {{val}}</p>		
-			</div>
-			<div ng-repeat="(key, val) in val" ng-if="isObj(val)">
-				<div ng-repeat="(key, val) in val track by $index">
-					<p><span class="keyword">{{key}}</span> : {{val}}</p>					
-				</div>
-			</div>
+<div ng-show="isActive('Encounter' + $index)" ng-repeat="encounter in camp.encounters">
+	<div>
+		<h1>{{encounter.enc.general.name}}</h1>
+		<p><span class="keyword">Setup</span> : {{encounter.enc.general.setup}}</p>
+		<p><span class="keyword">Readaloud</span> : {{encounter.enc.general.readaloud}}</p>
+
+		<h2>Monsters</h2>
+		<div class="xtra-space" ng-repeat="monster in encounter.monsters">
+			<p ng-repeat="(key, val) in monster"><span class="keyword">{{key}}</span> : {{val}}</p>
 		</div>
 	</div>
 </div>
