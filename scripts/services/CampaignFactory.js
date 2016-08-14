@@ -4,16 +4,13 @@ angular.module ('dm')
 
 	return {
 
-		setCamp: function(campaign) {
+		setCamp: function(campaign, callback) {
 			localStorage.setItem('play-campaign', campaign);
+			callback();
 		},
 
-		getCamp: function () { 
-			// return $http ({
-			// 	method: 'GET',
-			// 	url: '../../campaigns/' + localStorage.getItem ('play-camp-poss') + '/' + localStorage.getItem ('play-camp-id') + '.json' //Replace with document query
-			// });
-			return localStorage.getItem('play-campaign');
+		getCamp: function (callback) { 
+			 callback(localStorage.getItem('play-campaign'));
 		},
 	};
 

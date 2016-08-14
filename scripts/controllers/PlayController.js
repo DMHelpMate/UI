@@ -2,14 +2,13 @@
 angular.module('dm')
 .controller('PlayController', ['$http', '$scope', 'Campaign', function ($http, $scope, Campaign) {
 	
-	//Retrieve campaign object
-	// Campaign.getCamp().then( function (res) {
-	// 	$scope.camp = res.data;
-	// }, function (err) {
-	// 	console.log(err);
-	// });
-	$scope.camp = Campaign.getCamp();
+	// retrieve campaign object from localStorage, then assign it to scope
+	Campaign.getCamp(function(data) {
+		$scope.camp = data;
+		console.log('PlayController: ' + $scope.camp);
+	})
 
+	// on open, show general page first
 	$scope.activeClass = 'General';
 
 	//Return if param is an object
