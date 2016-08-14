@@ -3,11 +3,12 @@ angular.module('dm')
 .controller('PlayController', ['$http', '$scope', 'Campaign', function ($http, $scope, Campaign) {
 	
 	//Retrieve campaign object
-	Campaign.getCamp().then( function (res) {
-		$scope.camp = res.data;
-	}, function (err) {
-		console.log(err);
-	});
+	// Campaign.getCamp().then( function (res) {
+	// 	$scope.camp = res.data;
+	// }, function (err) {
+	// 	console.log(err);
+	// });
+	$scope.camp = Campaign.getCamp();
 
 	$scope.activeClass = 'General';
 

@@ -13,17 +13,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="brws-opt" ng-repeat="camp in campaigns track by $index" ng-click="getFullCampaign(camp.camp_id)">
+			<tr class="brws-opt" ng-repeat="camp in campaigns track by $index" 
+				ng-click="getFullCampaign(camp.camp_id)">
 				<td class="lft-brws-opt">{{camp.general.name}}</td>
 				<td>{{camp.general.author}}</td>
 				<td>{{camp.general.theme}}</td>
 				<td class="rgt-brws-opt">{{camp.general.description}}</td>
-			</tr>
-			<tr class="brws-opt" ng-click="getID(myCamps.test, 'local')">
-				<td class="lft-brws-opt">{{myCamps.General.Name}}</td>
-				<td>{{myCamps.General.Author}}</td>
-				<td>{{myCamps.General.Theme}}</td>
-				<td class="rgt-brws-opt">{{myCamps.General.Description}}</td>
 			</tr>
 		</tbody>
 	</table>

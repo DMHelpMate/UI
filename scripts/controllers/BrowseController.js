@@ -57,6 +57,7 @@ angular.module('dm')
 		}).then(function(res) {
 			console.log(res.data);
 			Campaign.setCamp(res.data);
+			$location.url('/play');
 		}, function(err) {
 			console.log(err);
 		});
