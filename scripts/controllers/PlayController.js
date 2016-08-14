@@ -5,14 +5,7 @@ angular.module('dm')
 	// retrieve campaign object from localStorage, then assign it to scope
 	Campaign.getCamp(function(data) {
 		$scope.camp = JSON.parse(data);
-		$scope.i = -1;
 	});
-
-	$scope.incr = function() {
-		$scope.i = $scope.i + 1;
-		console.log($scope.i);
-		return $scope.i;
-	}
 
 	// on open, show general page first
 	$scope.activeClass = 'General';
