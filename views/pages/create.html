@@ -29,12 +29,9 @@
                 <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
                     Encounters<i class="fa fa-plus-square-o"></i>
                 </li>
-                <!-- ng-repeat="encounter in encountersjson" -->
-                <!-- <div id="encounterlist" class="collapse in"> 
-                    <li id="create-encounters" ng-click="setActive($event)" >
-                        Encounter 1
-                    </li>
-                </div> -->
+                <div id="saved-encounters{{$index}}" class="collapse in" ng-repeat="encounter in encountersview track by $index" ng-click="setActive($event)">
+                    {{encounter.title}} 
+                </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -45,6 +42,7 @@
             <ng-include ng-show="isActive('create-encounters')" src="'views/pages/create-encounters.html'"></ng-include>
             <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html?v=1'"></ng-include>
             <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html?v=1'"></ng-include>
+            <ng-include src="'views/pages/saved-encounters.html?v=39'"></ng-include>
         </div>
         <!-- /#page-content-wrapper -->
 

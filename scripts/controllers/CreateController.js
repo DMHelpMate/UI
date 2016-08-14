@@ -3,6 +3,7 @@ angular.module('dm')
 
 //set active object (general info)
 	$scope.activeClass = 'create-general';
+  $scope.selectedencounter = ''; 
 
 //Compare the param to active id
 	$scope.isActive = function (id) {;
@@ -32,6 +33,10 @@ angular.module('dm')
     }
   };
 
+  // $scope.encountersPage = function (selectedencounter) {
+  //   //set the view to the saved encounters page and use the data from selectedencounter to populate
+  // };
+
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
   $scope.addgenralinfo = false;
@@ -54,8 +59,8 @@ angular.module('dm')
   $scope.location = {};
   $scope.locationsaddrow = function(){  
     $scope.locations.push({ 
-      'lname':$scope.location.lname, 
-      'ldiscription':$scope.location.ldiscription 
+      'name':$scope.location.name, 
+      'description':$scope.location.discription 
     });
     console.log($scope.locations);
     $scope.location = {};
@@ -100,19 +105,55 @@ angular.module('dm')
 
 //Creating ENCOUNTERS JSON object for a new Campaign
 	$scope.encountersjson = [];
+  $scope.encountersview = [];
   $scope.singleencounter = {};
 
   $scope.enctrsubmit = function() {
-    var enctid = localStorage.getItem('user-hash')+'_'+this.enctertitle;
-    $scope.singleencounter.enct_id = enctid;
-    $scope.singleencounter.title = this.enctertitle;
-    $scope.singleencounter.location = this.selectencounterlocation;
-    $scope.singleencounter.notes = this.encterdmnotes;
-    $scope.singleencounter.readaloud = this.encterreadaloud;
-    $scope.singleencounter.monsters = $scope.enctrmonsters;
-    console.log($scope.singleencounter);
+    var temptitle = $scope.singleencounter.title;
+    var enctid = localStorage.getItem('user-hash')+'_'+temptitle;
+    var monsters = $scope.enctrmonsters;
+     $scope.encountersview.push({
+      'title':$scope.singleencounter.title,
+      'location':$scope.singleencounter.location,
+      'notes':$scope.singleencounter.notes,
+      'readaloud':$scope.singleencounter.readaloud,
+      'monsters':monsters
+    });
+
+     var enctgeneral = {
+      'name':$scope.singleencounter.title,
+      'setup':$scope.singleencounter.notes,
+      'readaloud':$scope.singleencounter.readaloud
+    };
+    console.log("encounter for view="+JSON.stringify($scope.encountersview));
+    $scope.encountersjson.push({
+      'enc_id':enctid,
+      'general':enctgeneral,
+      'location':$scope.singleencounter.location,
+      'monsters':monsters
+    });
+    
+
+    var data = $scope.encountersjson;
+    console.log("encounter for data="+JSON.stringify(data));
+    $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('success');
+    });
+    console.log("Done with Post");
+
+    for (monster in $scope.encountersjson.monsters) {
+      console.log("monster="+monster);
+      var data = $scope.encountersjson.monsters.monster;
+      $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+        console.log('success');
+      });
+    }
+
+
     $scope.singleencounter = {};
     $scope.campaigncomplete = false;
+    console.log("Encounter after push: "+ JSON.stringify($scope.singleencounter));
+    console.log("Array after the push"+ JSON.stringify($scope.encountersjson));
   };
 
   //Add Monsters to the Encounter
@@ -120,9 +161,9 @@ angular.module('dm')
   $scope.enctrmonster = {};
   $scope.checkmonster = function() {  
     if (undefined != this.selectencountermonster && (this.enctrmonsterscount > 0)) {
-      $scope.enctrmonster.monster = this.selectencountermonster;
-      $scope.enctrmonster.mcount = this.enctrmonsterscount;
-      $scope.enctrmonsters.push({ 'enctmonster':$scope.enctrmonster });
+      $scope.enctrmonster.mon_id = this.selectencountermonster.mon_id;
+      $scope.enctrmonster.quantity = this.enctrmonsterscount;
+      $scope.enctrmonsters.push({ 'quantity':this.enctrmonsterscount, 'mon_id':this.selectencountermonster.mon_id });
       $scope.enctrmonster = {};
       console.log($scope.enctrmonsters);
     }
@@ -137,7 +178,7 @@ angular.module('dm')
     'encounters' : []
   }
   $scope.createcampaign = function() {
-
+    //push current campaign to the backend for db insert
   }
 
 }]);
