@@ -152,6 +152,9 @@ angular.module('dm')
       $scope.enctrmonsters.push({ 'quantity':this.enctrmonsterscount, 'mon_id':this.selectencountermonster.mon_id });
       $scope.viewmonsters.push({ 'quantity':this.enctrmonsterscount, 'name':this.selectencountermonster.mname });
       $scope.enctrmonster = {};
+      this.selectencountermonster = '';
+      this.enctrmonsterscount = 0;
+
     }
   };
 
