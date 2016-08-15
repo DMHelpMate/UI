@@ -56,8 +56,15 @@ angular.module('dm')
 
   $scope.onMonster = function(){
     $scope.encterName = [obj.length];
+    $scope.quant = [obj.length];
+
     for(i = 0; i < obj.length; i++){
       $scope.encterName[i]= obj[i].general.name;
+      for(j = 0; j < obj[i].monsters.length; j++){
+        if(this.mon_id_box === obj[i].monsters[j].mon_id){
+          $scope.quant[i] = obj[i].monsters[j].quantity;
+        }
+      }
     }
     for(i = 0; i < obj.length; i++){ //for testing multiple encounters
       console.log($scope.encterName[i]);

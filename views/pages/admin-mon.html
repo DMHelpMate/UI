@@ -1,2 +1,15 @@
 <h3>Monster id given here's all encounters it's found inside of:</h3>
-<li ng-repeat="x in encterName">{{x}}</li>
+<br><table class="table">
+<tr>
+    <th>Encounter Name
+    </th>
+    <th>Quantity
+    </th>
+</tr>
+<tr>
+    <td ng-repeat="x in encterName">{{x}}
+    </td>
+    <td ng-repeat ="y in quant">{{y}}
+    </td>
+</tr>
+</table>
