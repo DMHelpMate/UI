@@ -1,0 +1,11 @@
+body {
+    overflow-x: hidden;
+ }
+
+ #admin-container input[type="text"] {
+    color: black;
+}
+
+#admin-container input[type="number"] {
+    color: black;
+}
