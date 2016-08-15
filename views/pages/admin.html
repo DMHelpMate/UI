@@ -1,4 +1,13 @@
 <div id="admin-container" class="container">
-	<h1>Admin Abilities</h1>
-	<h3>O.o</h3>
+	<h1>Admin Page</h1>
+		<form ng-submit="onSubmit()" ng-controller="AdminController">
+			<h3>Monster ID:<h3>
+			<input type="text" ng-model="mon_id_box"/>
+			<h3>Encounter ID:<h3>
+			<input type="text" ng-model="enc_id_box"/>
+			<input type="submit" id="submit" value="Submit" />
+		</form>
+	<div>
+
+	</div>
 </div>
