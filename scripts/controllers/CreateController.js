@@ -42,7 +42,6 @@ angular.module('dm')
     $scope.campaigngeneraljson.author = this.campauthor;
     $scope.campaigngeneraljson.theme = this.camptheme;
     $scope.campaigngeneraljson.description = this.campdisc;
-    console.log($scope.campaigngeneraljson);
     //Hide the input form and show the results
     $scope.showgeneralinfo = false;
     $scope.addgenralinfo = true;
@@ -58,7 +57,6 @@ angular.module('dm')
       'name':$scope.location.name, 
       'description':$scope.location.description 
     });
-    console.log($scope.locations);
     $scope.location = {};
   };
 
@@ -82,7 +80,6 @@ angular.module('dm')
       'mattack':$scope.monster.mattack, 
       'mdefense':$scope.monster.mdefense 
     });
-    console.log($scope.monsters);
     $scope.monster = {};
   };
 
@@ -105,12 +102,10 @@ angular.module('dm')
   $scope.campencounters = [];
   $scope.singleencounter = {};
 
-console.log('ouside encounter submit form');
   $scope.enctrsubmit = function() {
     var temptitle = $scope.singleencounter.title;
     var enctid = localStorage.getItem('user-hash')+'_'+temptitle;
     var monsters = $scope.enctrmonsters;
-    console.log('before any pushes');
      $scope.encountersview.push({
       'title':$scope.singleencounter.title,
       'location':$scope.singleencounter.location,
@@ -124,7 +119,7 @@ console.log('ouside encounter submit form');
       'setup':$scope.singleencounter.notes,
       'readaloud':$scope.singleencounter.readaloud
     };
-    console.log('encounter for view='+JSON.stringify($scope.encountersview));
+
     $scope.encountersjson.push({
       'enc_id':enctid,
       'general':enctgeneral,
@@ -134,20 +129,12 @@ console.log('ouside encounter submit form');
     $scope.campencounters.push(enctid);
 
     var data = $scope.encountersjson;
-    console.log('encounter for data='+JSON.stringify(data));
     $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}});
-    console.log('Done with Post');
-
-    console.log('ouside loop');
-    console.log('monsters[0]='+monsters[0].mon_id);
     for (i = 0; i < monsters.length; i++) {
-      console.log('inside loop');
-      console.log('monster[i]='+monsters[i].mon_id);
        var monsterencounter = {
        'mon_id':monsters[i].mon_id, 
        'enc_id':enctid 
       };
-      console.log('monster to be pushed:'+monsterencounter);
       $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
     }
 
@@ -165,8 +152,6 @@ console.log('ouside encounter submit form');
       $scope.enctrmonsters.push({ 'quantity':this.enctrmonsterscount, 'mon_id':this.selectencountermonster.mon_id });
       $scope.viewmonsters.push({ 'quantity':this.enctrmonsterscount, 'name':this.selectencountermonster.mname });
       $scope.enctrmonster = {};
-      console.log($scope.enctrmonsters);
-      console.log("view:"+JSON.stringify($scope.viewmonsters));
     }
   };
 
