@@ -1,15 +1,17 @@
 <div id="admin-container" class="container" ng-controller="AdminController">
 	<h1>Admin Page</h1>
-		<form ng-submit="onSubmit()" ng-controller="AdminController">
+		<form ng-submit="onSubmit()">
 			<h3>Monster ID:</h3>
 			<input type="text" ng-model="mon_id_box"/>
 			<h3>Encounter ID:</h3>
 			<input type="text" ng-model="enc_id_box"/>
-			<input type="submit" id="submit" value="Submit" />
-			<h3></h3>
-			<ng-include  ng-show="{type === 'mon_enc'}" src="admin-mon_enc.html"></ng-include>
-			<ng-include  ng-show="{type === 'enc'}" src="admin-enc.html"></ng-include>
-			<ng-include  ng-show="{type === 'mon'}" src="admin-mon.html"></ng-include>
-			<ng-include  ng-show="{type === 'none'}" src="admin-none.html"></ng-include>
+			<input type="submit" class="btn btn-default" id="submit" value="Submit" />
 		</form>
+		<h1>updated 12 + {{type}}</h1>
+		<div class="container">
+			<ng-include  ng-show="type === 'mon_enc'" src="'views/pages/admin-mon_enc.html'"></ng-include>
+			<ng-include  ng-show="type === 'enc'" src="'views/pages/admin-enc.html'"></ng-include>
+			<ng-include  ng-show="type === 'mon'" src="'views/pages/admin-mon.html'"></ng-include>
+			<ng-include  ng-show="type === 'none'" src="'views/pages/admin-none.html'"></ng-include>
+		</div>
 </div>

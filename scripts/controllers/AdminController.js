@@ -1,6 +1,8 @@
 
 angular.module('dm')
 .controller('AdminController', ['$http', '$scope', function($http, $scope) {
+    $scope.type = 'temp';
+    
     $scope.onSubmit = function(){
 
       const URL = 'http://api.unicornrampage.com/monsters_encounters';
@@ -26,6 +28,7 @@ angular.module('dm')
           url: $scope.url
 
       }).then(function success(res) {
+          console.log($scope.type);
           $scope.json_obj = angular.toJson(res.data);
           console.log($scope.json_obj);
       }, function error(err) {
