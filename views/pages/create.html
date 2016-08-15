@@ -1,6 +1,6 @@
 <!-- Starting with the General Info page -->
 <div id="main-create-container" class="container">
-	<h1>Create a Campaign to play later with Friends!&emsp;&emsp;&emsp;<input  type="submit" class="btn btn-default" value="Create This Campaign" ng-disabled="campaigncomplete"></input></h1>
+	<h1>Create a Campaign to play later with Friends!&emsp;&emsp;&emsp;<input  type="submit" class="btn btn-default" value="Create This Campaign" ng-click="createcampaign()" ng-disabled="campaigncomplete"></input></h1>
     <div id="create-wrapper">
 
         <!-- Sidebar -->
@@ -29,7 +29,8 @@
                 <li class="sidebar-header" data-toggle="collapse" data-target="#encounterlist">
                     Encounters<i class="fa fa-plus-square-o"></i>
                 </li>
-                <div id="saved-encounters{{$index}}" class="collapse in" ng-repeat="encounter in encountersview track by $index" ng-click="setActive($event)">
+                <div id="saved-encounters{{$index}}" class="collapse in" ng-click="setActive($event)">
+                <!-- ng-repeat="encounter in encountersview track by $index" -->
                     {{encounter.title}} 
                 </div>
             </ul>
@@ -42,7 +43,7 @@
             <ng-include ng-show="isActive('create-encounters')" src="'views/pages/create-encounters.html'"></ng-include>
             <ng-include ng-show="isActive('create-locations')" src="'views/pages/create-locations.html?v=1'"></ng-include>
             <ng-include ng-show="isActive('create-monsters')" src="'views/pages/create-monsters.html?v=1'"></ng-include>
-            <ng-include src="'views/pages/saved-encounters.html?v=39'"></ng-include>
+            <!-- <ng-include src="'views/pages/saved-encounters.html?v=39'"></ng-include> -->
         </div>
         <!-- /#page-content-wrapper -->
 

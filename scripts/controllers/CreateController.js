@@ -33,20 +33,15 @@ angular.module('dm')
     }
   };
 
-  // $scope.encountersPage = function (selectedencounter) {
-  //   //set the view to the saved encounters page and use the data from selectedencounter to populate
-  // };
-
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
   $scope.addgenralinfo = false;
 	$scope.campaigngeneraljson = {};
   $scope.generalsubmit = function() {
-    $scope.campaigngeneraljson.title = this.camptitle;
+    $scope.campaigngeneraljson.name = this.camptitle;
     $scope.campaigngeneraljson.author = this.campauthor;
     $scope.campaigngeneraljson.theme = this.camptheme;
     $scope.campaigngeneraljson.description = this.campdisc;
-    console.log($scope.campaigngeneraljson);
     //Hide the input form and show the results
     $scope.showgeneralinfo = false;
     $scope.addgenralinfo = true;
@@ -62,7 +57,6 @@ angular.module('dm')
       'name':$scope.location.name, 
       'description':$scope.location.description 
     });
-    console.log($scope.locations);
     $scope.location = {};
   };
 
@@ -86,7 +80,6 @@ angular.module('dm')
       'mattack':$scope.monster.mattack, 
       'mdefense':$scope.monster.mdefense 
     });
-    console.log($scope.monsters);
     $scope.monster = {};
   };
 
@@ -106,6 +99,7 @@ angular.module('dm')
 //Creating ENCOUNTERS JSON object for a new Campaign
 	$scope.encountersjson = [];
   $scope.encountersview = [];
+  $scope.campencounters = [];
   $scope.singleencounter = {};
 
   $scope.enctrsubmit = function() {
@@ -125,48 +119,39 @@ angular.module('dm')
       'setup':$scope.singleencounter.notes,
       'readaloud':$scope.singleencounter.readaloud
     };
-    console.log("encounter for view="+JSON.stringify($scope.encountersview));
+
     $scope.encountersjson.push({
       'enc_id':enctid,
       'general':enctgeneral,
       'location':$scope.singleencounter.location,
       'monsters':monsters
     });
-    
+    $scope.campencounters.push(enctid);
 
     var data = $scope.encountersjson;
-    console.log("encounter for data="+JSON.stringify(data));
-    $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
-      console.log('success');
-    });
-    console.log("Done with Post");
-
-    for (monster in $scope.encountersjson.monsters) {
-      console.log("monster="+monster);
-      var data = $scope.encountersjson.monsters.monster;
-      $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
-        console.log('success');
-      });
+    $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}});
+    for (i = 0; i < monsters.length; i++) {
+       var monsterencounter = {
+       'mon_id':monsters[i].mon_id, 
+       'enc_id':enctid 
+      };
+      $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
     }
-
 
     $scope.singleencounter = {};
     $scope.campaigncomplete = false;
-    console.log("Encounter after push: "+ JSON.stringify($scope.singleencounter));
-    console.log("Array after the push"+ JSON.stringify($scope.encountersjson));
   };
 
   //Add Monsters to the Encounter
   $scope.enctrmonsters = [];
   $scope.viewmonsters = [];
   $scope.enctrmonster = {};
+  $scope.monsterencounter = {};
   $scope.checkmonster = function() {  
     if (undefined != this.selectencountermonster && (this.enctrmonsterscount > 0)) {
       $scope.enctrmonsters.push({ 'quantity':this.enctrmonsterscount, 'mon_id':this.selectencountermonster.mon_id });
       $scope.viewmonsters.push({ 'quantity':this.enctrmonsterscount, 'name':this.selectencountermonster.mname });
       $scope.enctrmonster = {};
-      console.log($scope.enctrmonsters);
-      console.log("view:"+JSON.stringify($scope.viewmonsters));
     }
   };
 
@@ -174,12 +159,15 @@ angular.module('dm')
   $scope.campaigncomplete = true;
 
   var campaign = {
-    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.title,
+    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
     'general' : $scope.campaigngeneraljson,
-    'encounters' : []
+    'encounters' : $scope.campencounters
   }
   $scope.createcampaign = function() {
-    //push current campaign to the backend for db insert
+    var data = campaign;
+    $http.post('http://api.unicornrampage.com/campaigns', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('success');
+    });
   }
 
 }]);
