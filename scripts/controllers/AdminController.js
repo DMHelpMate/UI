@@ -59,15 +59,26 @@ angular.module('dm')
     $scope.quant = [obj.length];
 
     for(i = 0; i < obj.length; i++){
+      $scope.quant[i] = -1;
+    }
+
+
+    for(i = 0; i < obj.length; i++){
       $scope.encterName[i]= obj[i].general.name;
       for(j = 0; j < obj[i].monsters.length; j++){
+
         if(this.mon_id_box === obj[i].monsters[j].mon_id){
           $scope.quant[i] = obj[i].monsters[j].quantity;
         }
       }
-    }
-    for(i = 0; i < obj.length; i++){ //for testing multiple encounters
-      console.log($scope.encterName[i]);
+      this.enc_obj = $scope.encterName.map(function(value, index) {
+        return {
+            name: value,
+            quantity: $scope.quant[index]
+          }
+      });
+      console.log("quantity ="+$scope.quant[i]);
+      console.log("encounter name="+$scope.encterName[i]);
     }
   }
 

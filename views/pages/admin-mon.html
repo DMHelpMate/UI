@@ -6,10 +6,10 @@
     <th>Quantity
     </th>
 </tr>
-<tr>
-    <td ng-repeat="x in encterName">{{x}}
+<tr ng-repeat="x in enc_obj">
+    <td>{{x.name}}
     </td>
-    <td ng-repeat ="y in quant">{{y}}
+    <td>{{x.quantity}}
     </td>
 </tr>
 </table>
