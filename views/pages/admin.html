@@ -1,16 +1,3 @@
-<div id="admin-container" class="container" ng-controller="AdminController">
-	<h1>Admin Page</h1>
-		<form ng-submit="onSubmit()">
-			<h3>Monster ID:</h3>
-			<input type="text" ng-model="mon_id_box"/>
-			<h3>Encounter ID:</h3>
-			<input type="text" ng-model="enc_id_box"/>
-			<input type="submit" class="btn btn-default" id="submit" value="Submit" />
-		</form>
-		<div class="container">
-			<ng-include  ng-show="type === 'mon_enc'" src="'views/pages/admin-mon_enc.html'"></ng-include>
-			<ng-include  ng-show="type === 'enc'" src="'views/pages/admin-enc.html'"></ng-include>
-			<ng-include  ng-show="type === 'mon'" src="'views/pages/admin-mon.html'"></ng-include>
-			<ng-include  ng-show="type === 'none'" src="'views/pages/admin-none.html'"></ng-include>
-		</div>
+<div id="admin-container" class="container">
+	
 </div>
