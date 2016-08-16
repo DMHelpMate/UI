@@ -42,19 +42,35 @@ angular.module('dm')
    */
   $scope.getAssociatedDocs = function(doc) {
     var docUrl = 'http://api.unicornrampage.com/monsters_encounters';
+    var collectionBuffer = $scope.collection;
     if ($scope.isEncounters()) {
       docUrl += '?enc_id=' + doc.enc_id;
+      collectionBuffer = 'EncounterResults';
     } else if ($scope.isMonsters()) {
       docUrl += '?mon_id=' + doc.mon_id;
+      collectionBuffer = 'MonsterResults';
     }
     $http({
       method: 'GET',
       url: docUrl
     }).then(function(res) {
+      $scope.collection = collectionBuffer;
+      $scope.result = res.data;
+      $scope.selectedDoc = doc;
       console.log(res.data);
     }, function(err) {
       console.log(err);
     });
+  }
+
+
+  /**
+   * isEncounterResults() determines if results has been set
+   *
+   * @return {boolean}
+   */
+  $scope.isEncounterResults = function() {
+    return $scope.collection === 'EncounterResults';
   }
 
 
@@ -84,6 +100,16 @@ angular.module('dm')
       // unimplemented type
       return false;
     }
+  }
+
+
+  /**
+   * isMonsterResults() determines if results has been set
+   *
+   * @return {boolean}
+   */
+  $scope.isMonsterResults = function() {
+    return $scope.collection === 'MonsterResults';
   }
 
 

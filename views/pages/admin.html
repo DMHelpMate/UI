@@ -34,6 +34,26 @@
 				</tr>
 			</table>
 		</div>
+		<div ng-if="isEncounterResults()">
+			<p ng-if="!result[0] || !result[0].mon_id || !result[0].mname">Looks like there are no monsters in this encounter :/ </p>
+			<table>
+				<tr ng-repeat="monster in result | orderBy: monster.mname">
+					<td>{{monster.mname}} </td>
+					<td>{{monster.mattack}} </td>
+					<td>{{monster.mhitpoints}} </td>
+					<td>{{monster.mdefense}} </td>
+				</tr>
+			</table>
+		</div>
+		<div ng-if="isMonsterResults()">
+		<p ng-if="!result[0] || !result[0].enc_id || !result[0].general || !result[0].general.name">Looks like there are no encounters associated with this monster :/ </p>
+			<table>
+				<tr ng-repeat="encounter in result | orderBy: encounter.general.name">
+					<td>{{encounter.general.name}}</td>
+					<td ng-repeat="monster in encounter.monsters" ng-if="monster.mon_id === selectedDoc.mon_id">{{monster.quantity}}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<!-- End of docs list -->
 
