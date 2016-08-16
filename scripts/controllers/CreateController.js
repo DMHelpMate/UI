@@ -85,6 +85,7 @@ angular.module('dm')
     $scope.monsters.push($scope.monster);
 
     var data = $scope.monster;
+    console.log(data);
     $scope.monsterssaved = true;
     $http.post('http://api.unicornrampage.com/monsters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
       console.log('success');
@@ -103,15 +104,16 @@ angular.module('dm')
   };
 
   $scope.saveMonster = function(ind) {
-    console.log(ind);
     var temp = $scope.monsters.indexOf($scope.editedmonster);
     console.log('index'+temp);
     $scope.monsters[temp] = angular.copy($scope.monster.selected);
+    var newmonster = $scope.monster.selected;
+    console.log($scope.monster.selected);
+    var data = ind;
+    $http.put('http://api.unicornrampage.com/monsters?mon_id='+ data, newmonster, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('update success');
+    });
     $scope.reset();
-    // var data = mon.mon_id;
-    // $http.put('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
-    //   console.log('update success');
-    // });
   };
 
   $scope.reset = function () {
@@ -132,6 +134,11 @@ angular.module('dm')
     $http.delete('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
       console.log('delete success');
     });
+  };
+
+  
+  $scope.selectMonster = function(id){ 
+
   };
 
 
