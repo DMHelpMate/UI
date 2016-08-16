@@ -1,3 +1,40 @@
-<div id="admin-container" class="container">
-	
+<div id="admin-container" >
+
+	<!-- Start of search bar -->
+	<div id="input-bar">
+		<form class="form-inline">
+			<div class="form-group">
+				<div id="collection-select" class="form-group">
+					<select id="collections" ng-model="collection">
+						<option>Encounters</option>
+						<option>Monsters</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" name="search" ng-model="search" placeholder="Search by name">
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- End of search bar -->
+
+	<!-- Start of docs list -->
+	<div id="docs">
+		<div ng-if="isMonsters">
+			<table>
+				<tr ng-repeat="encounter in encounters | orderBy: encounter.general.name" ng-if="validate(encounter, collection)" ng-show="isInSearch(encounter, collection)">
+					<td>{{encounter.general.name}}</td>
+				</tr>
+			</table>
+		</div>
+		<div ng-if="isEncounters">
+			<table>
+				<tr ng-repeat="monster in monsters | orderBy: monster.mname" ng-if="validate(monster, collection)" ng-show="isInSearch(monster, collection)">
+					<td>{{monster.mname}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- End of docs list -->
+
 </div>
