@@ -1,11 +1,26 @@
+
 body {
     overflow-x: hidden;
  }
 
- #admin-container input[type="text"] {
-    color: black;
+#admin-container select {
+	color: grey;
 }
 
-#admin-container input[type="number"] {
-    color: black;
+#admin-container input {
+	color: black;
+}
+
+#admin-container #input-bar {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: solid 1px #474747;
+}
+
+#admin-container #input-bar form {
+	text-align: center;
+}
+
+#admin-container #collection-select {
+	margin-right: 45px;
 }
