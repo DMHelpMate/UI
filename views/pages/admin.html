@@ -21,14 +21,14 @@
 	<!-- Start of docs list -->
 	<div id="docs">
 		<div ng-if="isMonsters">
-			<table>
+			<table id="encounter-browse">
 				<tr ng-repeat="encounter in encounters | orderBy: encounter.general.name" ng-if="validate(encounter)" ng-show="isInSearch(encounter)" ng-click="getAssociatedDocs(encounter)">
 					<td>{{encounter.general.name}}</td>
 				</tr>
 			</table>
 		</div>
 		<div ng-if="isEncounters">
-			<table>
+			<table id="monster-browse">
 				<tr ng-repeat="monster in monsters | orderBy: monster.mname" ng-if="validate(monster)" ng-show="isInSearch(monster)" ng-click="getAssociatedDocs(monster)">
 					<td>{{monster.mname}}</td>
 				</tr>
@@ -46,8 +46,8 @@
 			</table>
 		</div>
 		<div ng-if="isMonsterResults()">
-		<p ng-if="!result[0] || !result[0].enc_id || !result[0].general || !result[0].general.name">Looks like there are no encounters associated with this monster :/ </p>
-			<table>
+			<p ng-if="!result[0] || !result[0].general || !result[0].general.name">Looks like there are no encounters associated with this monster :/ </p>
+			<table ng-if="result[0] && result[0].general && result[0].location">
 				<tr ng-repeat="encounter in result | orderBy: encounter.general.name">
 					<td>{{encounter.general.name}}</td>
 					<td ng-repeat="monster in encounter.monsters" ng-if="monster.mon_id === selectedDoc.mon_id">{{monster.quantity}}</td>

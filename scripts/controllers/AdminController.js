@@ -41,6 +41,7 @@ angular.module('dm')
    * @param {object} doc The document to retrieve associated docs
    */
   $scope.getAssociatedDocs = function(doc) {
+    console.log(doc);
     var docUrl = 'http://api.unicornrampage.com/monsters_encounters';
     var collectionBuffer = $scope.collection;
     if ($scope.isEncounters()) {

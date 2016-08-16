@@ -1,5 +1,5 @@
 
-body {
+#admin-container body {
     overflow-x: hidden;
  }
 
@@ -23,4 +23,14 @@ body {
 
 #admin-container #collection-select {
 	margin-right: 45px;
+}
+
+#admin-container #docs #encounter-browse td:hover {
+	cursor: pointer;
+	font-weight: 900;
+}
+
+#admin-container #docs #monster-browse td:hover {
+	cursor: pointer;
+	font-weight: 900;
 }
