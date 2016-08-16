@@ -26,7 +26,8 @@
         <th>
         </th>
     </tr>
-    <tr ng-repeat="monster in monsters">
+    <div id="savedmonsterrow">
+    <tr ng-repeat="monster in monsters" id="savedmonsterrow" ng-hide="savedmonsterrow">
         <td>{{monster.mname}}
         </td>
         <td>{{monster.mhitpoints}}
@@ -35,7 +36,21 @@
         </td>
         <td>{{monster.mdefense}}
         </td>
-        <td><button class="btn btn-default" type="button" ng-click="editMonster(monster.mon_id)">Edit</button><button class="btn btn-default" type="button" ng-click="deleteMonster(monster.mon_id)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button></td>
+        <td><button class="btn btn-default" type="button" ng-click="editMonster(monster)">Edit</button>
+        <button class="btn btn-default" type="button"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button></td>
     </tr>
-</table>
+    </div>
+    <div id="editmonsterrow">
+    <tr id="editmonsterrow" ng-hide="editmonsterrow">
+        <td><input type="text" name="mname" ng-model="monster.selected.mname" required ></input></td>
+        <td><input type="number" name="mhitpoints" ng-model="monster.selected.mhitpoints" required ></input></td>
+        <td><input type="number" name="mattack" ng-model="monster.selected.mattack" required ></input></input></td>
+        <td><input type="number" name="mdefense" ng-model="monster.selected.mdefense" required ></input></input></td>
+        <td>
+            <button class="btn btn-default" ng-click="saveMonster(monster)">Save</button>
+            <button class="btn btn-default" ng-click="reset()">Cancel</button>
+        </td>
+    </tr>
+    </div>
+    </table>
 </div>
