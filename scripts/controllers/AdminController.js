@@ -49,13 +49,12 @@ angular.module('dm')
    * If the value is blank, all documents are true.
    *
    * @param {object} doc The document to check
-   * @param {string} type The type of document
    * @return {boolean}
    */
-  $scope.isInSearch = function(doc, type) {
-    if (type === 'Encounters') {
+  $scope.isInSearch = function(doc) {
+    if ($scope.isEncounters()) {
       return doc.general.name.indexOf($scope.search) >= 0;
-    } else if (type === 'Monsters') {
+    } else if ($scope.isMonsters()) {
       return doc.mname.indexOf($scope.search) >= 0;
     } else {
       // unimplemented type
@@ -78,15 +77,14 @@ angular.module('dm')
    * validate() ensures that all required fields have been inputted
    *
    * @param {object} doc The document to validate
-   * @param {string} type The type of document
    * @return {boolean}
    */
-  $scope.validate = function(doc, type) {
-    if (type === 'Encounters') {
+  $scope.validate = function(doc) {
+    if ($scope.isEncounters()) {
       return doc.location && doc.location.name && doc.location.description
         && doc.general && doc.general.name && doc.general.setup
         && doc.general.readaloud;
-    } else if (type === 'Monsters') {
+    } else if ($scope.isMonsters()) {
       return doc.mname && doc.mhitpoints && doc.mattack && doc.mdefense;
     } else {
       // unimplemented type
