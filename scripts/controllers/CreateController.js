@@ -92,13 +92,22 @@ angular.module('dm')
   };
 
   $scope.editMonster = function(id){  
-    console.log('edit: '+id);
+
+
+    var data = id;
+    $http.put('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
+      console.log('update success');
+    });
   };
 
   $scope.deleteMonster = function(id){ 
     if ($scope.monsters.length === 1) {
           $scope.monsterssaved = false;
     }
+    console.log("monsters BEFORE= "+$scope.monsters[0]);
+    var index = $scope.monsters.indexOf(id);
+    $scope.monsters.splice(index, 1);
+    console.log("monsters AFTER= "+$scope.monsters[0]);
     var data = id;
     $http.delete('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
       console.log('delete success');
