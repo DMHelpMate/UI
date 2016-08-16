@@ -22,14 +22,14 @@
 	<div id="docs">
 		<div ng-if="isMonsters">
 			<table>
-				<tr ng-repeat="encounter in encounters | orderBy: encounter.general.name" ng-if="validate(encounter)" ng-show="isInSearch(encounter)">
+				<tr ng-repeat="encounter in encounters | orderBy: encounter.general.name" ng-if="validate(encounter)" ng-show="isInSearch(encounter)" ng-click="getAssociatedDocs(encounter)">
 					<td>{{encounter.general.name}}</td>
 				</tr>
 			</table>
 		</div>
 		<div ng-if="isEncounters">
 			<table>
-				<tr ng-repeat="monster in monsters | orderBy: monster.mname" ng-if="validate(monster)" ng-show="isInSearch(monster)">
+				<tr ng-repeat="monster in monsters | orderBy: monster.mname" ng-if="validate(monster)" ng-show="isInSearch(monster)" ng-click="getAssociatedDocs(monster)">
 					<td>{{monster.mname}}</td>
 				</tr>
 			</table>

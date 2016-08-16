@@ -32,6 +32,30 @@ angular.module('dm')
     console.log(err);
   });
 //------------------------ End of initial setup -----------------------------------
+  
+
+  /**
+   * getAssociatedDocs() retrieves all of the documents associated with the passed
+   * in document
+   *
+   * @param {object} doc The document to retrieve associated docs
+   */
+  $scope.getAssociatedDocs = function(doc) {
+    var docUrl = 'http://api.unicornrampage.com/monsters_encounters';
+    if ($scope.isEncounters()) {
+      docUrl += '?enc_id=' + doc.enc_id;
+    } else if ($scope.isMonsters()) {
+      docUrl += '?mon_id=' + doc.mon_id;
+    }
+    $http({
+      method: 'GET',
+      url: docUrl
+    }).then(function(res) {
+      console.log(res.data);
+    }, function(err) {
+      console.log(err);
+    });
+  }
 
 
   /**
