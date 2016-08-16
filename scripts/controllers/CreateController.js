@@ -29,7 +29,7 @@ angular.module('dm')
     if ($scope.locationssaved && $scope.monsterssaved) {
       $scope.setActive(event);
     } else {
-      alert("Must Save Monsters and Locations First");
+      alert("Must Save At least one Monster and Location First");
     }
   };
 
@@ -73,26 +73,36 @@ angular.module('dm')
   $scope.monster = {};
   $scope.monstersaddrow = function(){  
     var mon_id = localStorage.getItem('user-hash')+'_'+$scope.monster.mname;
-    $scope.monsters.push({ 
+    $scope.monster = { 
       'mon_id':mon_id,
       'mname':$scope.monster.mname, 
       'mhitpoints':$scope.monster.mhitpoints, 
       'mattack':$scope.monster.mattack, 
       'mdefense':$scope.monster.mdefense 
+    };
+
+    $scope.monsters.push($scope.monster);
+
+    var data = $scope.monster;
+    $scope.monsterssaved = true;
+    $http.post('http://api.unicornrampage.com/monsters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('success');
     });
     $scope.monster = {};
   };
 
-//Save and Finish creating monsters table, and send the array of monsters to the api for inserting into the db
-  $scope.hidemonsters = function(){
-    if ($scope.monsters.length > 0) {
-      var data = $scope.monsters;
-      $scope.addmonsters = !$scope.addmonsters;
-      $scope.monsterssaved = true;
-      $http.post('http://api.unicornrampage.com/monsters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
-        console.log('success');
-      });
+  $scope.editMonster = function(id){  
+    console.log('edit: '+id);
+  };
+
+  $scope.deleteMonster = function(id){ 
+    if ($scope.monsters.length === 1) {
+          $scope.monsterssaved = false;
     }
+    var data = id;
+    $http.delete('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
+      console.log('delete success');
+    });
   };
 
 

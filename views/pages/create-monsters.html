@@ -1,6 +1,6 @@
 <div id="create-monsters-container" class="container">
 	<h1>Monsters</h1>
-    <div ng-hide="addmonsters">
+    <div>
     	<form ng-submit="monstersaddrow()">
             <label>Monsters Name/Race</label>
             <input type="text" name="mname" ng-model="monster.mname" required ></input>
@@ -13,9 +13,6 @@
     		<input  type="submit" class="btn btn-default" value="Add Row" ng-disabled="monstersaddrow.$invalid"></input>
     	</form>
     </div>
-
-    <br><button ng-click="hidemonsters()" class="btn btn-default" ng-disabled="monsterssaved" >Save and Finish</button><br>
-
     <br><table class="table">
     <tr>
         <th>Name/Race
@@ -25,6 +22,8 @@
         <th>Attack
         </th>
         <th>Defense
+        </th>
+        <th>
         </th>
     </tr>
     <tr ng-repeat="monster in monsters">
@@ -36,6 +35,7 @@
         </td>
         <td>{{monster.mdefense}}
         </td>
+        <td><button class="btn btn-default" type="button" ng-click="editMonster(monster.mon_id)">Edit</button><button class="btn btn-default" type="button" ng-click="deleteMonster(monster.mon_id)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button></td>
     </tr>
 </table>
 </div>
