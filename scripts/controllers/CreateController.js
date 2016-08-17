@@ -93,6 +93,13 @@ angular.module('dm')
     $scope.monster = {};
   };
 
+  $scope.monstersaddpremade = function(pmm) {  
+    console.log(pmm);
+    $scope.monsters.push(pmm);
+    $scope.monsterssaved = true;
+    $scope.monster = {};
+  };
+
   $scope.editedmonster; 
   // EDIT a monster in the table
   $scope.editMonster = function(mon) {  
@@ -136,9 +143,13 @@ angular.module('dm')
     });
   };
 
-  
+  $scope.dbmonsters = true;
   $scope.selectMonster = function(id){ 
-
+    $scope.dbmonsters = false;
+    $http.get('http://api.unicornrampage.com/monsters').success(function (data) {
+      $scope.databasemonsters = data;
+      console.log('get success');
+    });
   };
 
 
