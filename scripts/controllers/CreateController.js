@@ -52,7 +52,7 @@ angular.module('dm')
 //Locations
   $scope.locations = [];
   $scope.location = {};
-  $scope.locationsaddrow = function(){  
+  $scope.locationsaddrow = function() {  
     $scope.locations.push({ 
       'name':$scope.location.name, 
       'description':$scope.location.description 
@@ -61,7 +61,7 @@ angular.module('dm')
   };
 
 //Save and Finish creating locations table
-  $scope.hidelocations = function(){
+  $scope.hidelocations = function() {
     if ($scope.locations.length > 0) {
       $scope.addlocations = !$scope.addlocations;
       $scope.locationssaved = true;
@@ -71,7 +71,9 @@ angular.module('dm')
 //Monsters
   $scope.monsters = [];
   $scope.monster = {};
-  $scope.monstersaddrow = function(){  
+  $scope.savedmonsterrow = false;
+  $scope.editmonsterrow = true;
+  $scope.monstersaddrow = function() {  
     var mon_id = localStorage.getItem('user-hash')+'_'+$scope.monster.mname;
     $scope.monster = { 
       'mon_id':mon_id,
@@ -80,10 +82,10 @@ angular.module('dm')
       'mattack':$scope.monster.mattack, 
       'mdefense':$scope.monster.mdefense 
     };
-
     $scope.monsters.push($scope.monster);
 
     var data = $scope.monster;
+    console.log(data);
     $scope.monsterssaved = true;
     $http.post('http://api.unicornrampage.com/monsters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
       console.log('success');
@@ -91,17 +93,62 @@ angular.module('dm')
     $scope.monster = {};
   };
 
-  $scope.editMonster = function(id){  
-    console.log('edit: '+id);
+  $scope.monstersaddpremade = function(pmm) {  
+    console.log(pmm);
+    $scope.monsters.push(pmm);
+    $scope.monsterssaved = true;
+    $scope.monster = {};
   };
 
+  $scope.editedmonster; 
+  // EDIT a monster in the table
+  $scope.editMonster = function(mon) {  
+    $scope.savedmonsterrow = true;
+    $scope.editmonsterrow = false;
+    $scope.monster.selected = angular.copy(mon);
+    console.log(mon);
+    $scope.editedmonster = mon;
+  };
+
+  $scope.saveMonster = function(ind) {
+    var temp = $scope.monsters.indexOf($scope.editedmonster);
+    console.log('index'+temp);
+    $scope.monsters[temp] = angular.copy($scope.monster.selected);
+    var newmonster = $scope.monster.selected;
+    console.log($scope.monster.selected);
+    var data = ind;
+    $http.put('http://api.unicornrampage.com/monsters?mon_id='+ data, newmonster, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('update success');
+    });
+    $scope.reset();
+  };
+
+  $scope.reset = function () {
+    $scope.monster.selected = {};
+    $scope.editedmonster = {};
+    $scope.savedmonsterrow = false;
+    $scope.editmonsterrow = true;
+  };
+
+  // DELETE a monster from the table
   $scope.deleteMonster = function(id){ 
     if ($scope.monsters.length === 1) {
           $scope.monsterssaved = false;
     }
+    var index = $scope.monsters.indexOf(id);
+    $scope.monsters.splice(index, 1);
     var data = id;
     $http.delete('http://api.unicornrampage.com/monsters?mon_id='+ data).success(function (data) {
       console.log('delete success');
+    });
+  };
+
+  $scope.dbmonsters = true;
+  $scope.selectMonster = function(id){ 
+    $scope.dbmonsters = false;
+    $http.get('http://api.unicornrampage.com/monsters').success(function (data) {
+      $scope.databasemonsters = data;
+      console.log('get success');
     });
   };
 
