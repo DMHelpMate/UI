@@ -1,3 +1,14 @@
+#admin-container #docs img {
+    display: block;
+    margin: auto;
+    float:center;
+    width:128px;
+    height:128px;
+}
+
+#admin-container #docs p {
+  text-align: center;
+}
 
 #admin-container body {
     overflow-x: hidden;
@@ -9,11 +20,17 @@
 
 #admin-container input {
 	color: black;
+  padding-left: 5px;
+  width: 95%;
 }
+#admin-container input[type=text]:focus {
+    border: 2px solid #9966ff;
+}
+
 
 #admin-container #input-bar {
 	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 	border-bottom: solid 1px #474747;
 }
 
@@ -30,7 +47,53 @@
 	font-weight: 900;
 }
 
+
+#admin-container #docs #mcol td {
+  text-align: center;
+  border: 1px solid #9966ff;
+  padding: 5px;
+}
+#admin-container #docs #mcol th {
+  background-color: #b591ff;
+  border: 1px solid #b591ff;
+  padding: 5px;
+}
+
+#admin-container #docs #mcol table.dis {
+    border-spacing: 10px 50px;
+}
+
+#admin-container #docs td {
+    border: 1px solid #9966ff;
+}
+
+#admin-container #docs th {
+    border: 1px solid #9966ff;
+}
+#admin-container #docs tr{
+  text-align: center;
+}
+
 #admin-container #docs #monster-browse td:hover {
 	cursor: pointer;
 	font-weight: 900;
+}
+
+#admin-container h1 {
+	color: #fff;
+	font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 62px;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-align: center;
+	border-bottom: 1px solid #9966ff;
+}
+
+#admin-container caption {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 4;
+  letter-spacing: 10;
+  caption-side: top;
+
 }

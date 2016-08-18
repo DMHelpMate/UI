@@ -1,60 +1,111 @@
 <div id="admin-container" >
+	<h1>Admin Page</h1>
 
 	<!-- Start of search bar -->
-	<div id="input-bar">
-		<form class="form-inline">
-			<div class="form-group">
-				<div id="collection-select" class="form-group">
-					<select id="collections" ng-model="collection">
-						<option>Encounters</option>
-						<option>Monsters</option>
-					</select>
-				</div>
+		<div id="input-bar">
+			<form class="form-inline">
 				<div class="form-group">
-					<input type="text" name="search" ng-model="search" placeholder="Search by name">
+					<div id="collection-select" class="form-group">
+						<select id="collections" ng-model="collection">
+							<option>Encounters</option>
+							<option>Monsters</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="text" name="search" ng-model="search" placeholder="Search by name">
+					</div>
 				</div>
-			</div>
-		</form>
-	</div>
-	<!-- End of search bar -->
+			</form>
+		</div>
+		<!-- End of search bar -->
 
-	<!-- Start of docs list -->
-	<div id="docs">
-		<div ng-if="isMonsters">
-			<table id="encounter-browse">
-				<tr ng-repeat="encounter in encounters | orderBy: encounter.general.name" ng-if="validate(encounter)" ng-show="isInSearch(encounter)" ng-click="getAssociatedDocs(encounter)">
-					<td>{{encounter.general.name}}</td>
-				</tr>
-			</table>
+		<!-- Start of docs list -->
+		<div id="docs">
+			<div ng-if="isMonsters">
+				<table id="encounter-browse" >
+
+
+					<tr ng-repeat="encounter in encounters | orderBy: 'general.name'" ng-if="validate(encounter)" ng-show="isInSearch(encounter)" ng-click="getAssociatedDocs(encounter)">
+						<td id="mpage">{{encounter.general.name}}</td>
+
+
+<!--
+						<tr ng-repeat="encounter in encounters" ng-if="validate(encounter)" ng-show="isInSearch(encounter)" ng-click="getAssociatedDocs(encounter)" ng-switch on="$index%3">
+						<td ng-switch-when="0">
+								{{encounters[$index].general.name}}
+						</td>
+						<td ng-switch-when="0">
+							<span ng-show="encounters[$index+1]">
+								{{encounters[$index+1].general.name}}
+							</span>
+						</td>
+						<td ng-switch-when="0">
+							<span ng-show="encounters[$index+2]">
+								{{encounters[$index+2].general.name}}
+							</span>
+						</td>
+-->
+					</tr>
+				</table>
+
+			</div>
+			<div ng-if="isEncounters">
+				<table id="monster-browse">
+					<tr ng-repeat="monster in monsters | orderBy: 'mname'" ng-if="validate(monster)" ng-show="isInSearch(monster)" ng-click="getAssociatedDocs(monster)" ng-switch on="$index%3">
+						<td id="mpage">{{monster.mname}}</td>
+<!--
+						<td ng-switch-when="0">
+								{{monsters[$index].mname}}
+						</td>
+						<td ng-switch-when="0">
+							<span ng-show="{{monsters[$index+1]}}">
+								{{monsters[$index+1].mname}}
+							</span>
+						</td>
+						<td ng-switch-when="0">
+							<span ng-show="{{monsters[$index+2]}}">
+								{{monsters[$index+2].mname}}
+							</span>
+						</td>
+ -->
+					</tr>
+				</table>
+			</div>
+			<div ng-if="isEncounterResults()">
+				<img ng-if="!result[0] || !result[0].mon_id || !result[0].mname" src="..\img\error-unicorn.png">
+				<p ng-if="!result[0] || !result[0].mon_id || !result[0].mname">Looks like there are no monsters in this encounter!</p>
+				<table id = "mcol" ng-if="result[0] || result[0].mon_id || result[0].mname">
+					<caption>Table: Monsters in Encounter</caption>
+					<tr>
+						<th>Name</th>
+						<th>Attack</th>
+						<th>Hit-Points</th>
+						<th>Defense</th>
+					</tr>
+					<tr ng-repeat="monster in result | orderBy: monster.mname">
+						<td>{{monster.mname}} </td>
+						<td>{{monster.mattack}} </td>
+						<td>{{monster.mhitpoints}} </td>
+						<td>{{monster.mdefense}} </td>
+					</tr>
+				</table>
+			</div>
+			<div ng-if="isMonsterResults()">
+				<img ng-if="!result[0] || !result[0].general || !result[0].general.name" src="..\img\error-unicorn.png">
+				<p ng-if="!result[0] || !result[0].general || !result[0].general.name">Looks like there are no encounters associated with this monster!</p>
+				<table id = "mcol" ng-if="result[0] && result[0].general && result[0].location">
+					<caption>Table: Encounters with Monster</caption>
+					<tr>
+						<th>Name</th>
+						<th>Quantity</th>
+					</tr>
+					<tr ng-repeat="encounter in result | orderBy: encounter.general.name">
+						<td>{{encounter.general.name}}</td>
+						<td ng-repeat="monster in encounter.monsters" ng-if="monster.mon_id === selectedDoc.mon_id">{{monster.quantity}}</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<div ng-if="isEncounters">
-			<table id="monster-browse">
-				<tr ng-repeat="monster in monsters | orderBy: monster.mname" ng-if="validate(monster)" ng-show="isInSearch(monster)" ng-click="getAssociatedDocs(monster)">
-					<td>{{monster.mname}}</td>
-				</tr>
-			</table>
-		</div>
-		<div ng-if="isEncounterResults()">
-			<p ng-if="!result[0] || !result[0].mon_id || !result[0].mname">Looks like there are no monsters in this encounter :/ </p>
-			<table>
-				<tr ng-repeat="monster in result | orderBy: monster.mname">
-					<td>{{monster.mname}} </td>
-					<td>{{monster.mattack}} </td>
-					<td>{{monster.mhitpoints}} </td>
-					<td>{{monster.mdefense}} </td>
-				</tr>
-			</table>
-		</div>
-		<div ng-if="isMonsterResults()">
-			<p ng-if="!result[0] || !result[0].general || !result[0].general.name">Looks like there are no encounters associated with this monster :/ </p>
-			<table ng-if="result[0] && result[0].general && result[0].location">
-				<tr ng-repeat="encounter in result | orderBy: encounter.general.name">
-					<td>{{encounter.general.name}}</td>
-					<td ng-repeat="monster in encounter.monsters" ng-if="monster.mon_id === selectedDoc.mon_id">{{monster.quantity}}</td>
-				</tr>
-			</table>
-		</div>
-	</div>
 	<!-- End of docs list -->
 
 </div>

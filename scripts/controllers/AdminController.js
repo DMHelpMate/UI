@@ -18,6 +18,12 @@ angular.module('dm')
     url: ENC_URL
   }).then(function(res) {
     $scope.encounters = res.data;
+
+    //sorts data alphabetically
+    var enc_json = $scope.encounters;
+    sortJsonArrayByProperty(enc_json,'general.name');
+    $scope.encounters = enc_json;
+
   }, function(err) {
     console.log(err);
   });
@@ -28,11 +34,17 @@ angular.module('dm')
     url: MON_URL
   }).then(function(res) {
     $scope.monsters = res.data;
+
+    //sorts json data alphabetically
+    var mon_json = $scope.monsters;
+    sortJsonArrayByProperty(mon_json,'mname');
+    $scope.monsters = mon_json;
+
   }, function(err) {
     console.log(err);
   });
 //------------------------ End of initial setup -----------------------------------
-  
+
 
   /**
    * getAssociatedDocs() retrieves all of the documents associated with the passed
@@ -143,5 +155,30 @@ angular.module('dm')
     }
   }
 
+  /**
+   * sortJsonArrayByProperty() restructures json array based upon property
+   *
+   * @param {object Array, order property, direction assending/desending}
+   */
+  function sortJsonArrayByProperty(objArray, prop, direction){
+    if (arguments.length<2) throw new Error("sortJsonArrayByProp requires 2 arguments");
+    var direct = arguments.length>2 ? arguments[2] : 1; //Default to ascending
+
+    if (objArray && objArray.constructor===Array){
+        var propPath = (prop.constructor===Array) ? prop : prop.split(".");
+        objArray.sort(function( a,b){
+            for (var p in propPath){
+                if (a[propPath[p]] && b[propPath[p]]){
+                    a = a[propPath[p]];
+                    b = b[propPath[p]];
+                }
+            }
+            // convert numeric strings to integers
+            a = String(a).match(/^\d+$/) ? +a : a;
+            b = String(b).match(/^\d+$/) ? +b : b;
+            return ( (a < b) ? -1*direct : ((a > b) ? 1*direct : 0) );
+        });
+    }
+  }
 
 }]);
