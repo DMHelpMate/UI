@@ -194,7 +194,7 @@ angular.module('dm')
        var monsterencounter = {
        'mon_id':monsters[i].mon_id, 
        'enc_id':enctid,
-       'quantity':monsters.length;
+       'quantity':monsters.length
       };
       $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
     }
