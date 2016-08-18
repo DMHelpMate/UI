@@ -36,9 +36,11 @@ angular.module('dm')
 //Creating GENERAL-INFO JSON object for a new Campaign
   $scope.showgeneralinfo = true;
   $scope.addgenralinfo = false;
+  var campid;
 	$scope.campaigngeneraljson = {};
   $scope.generalsubmit = function() {
     $scope.campaigngeneraljson.name = this.camptitle;
+    campid = localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name;
     $scope.campaigngeneraljson.author = this.campauthor;
     $scope.campaigngeneraljson.theme = this.camptheme;
     $scope.campaigngeneraljson.description = this.campdisc;
@@ -181,7 +183,8 @@ angular.module('dm')
       'enc_id':enctid,
       'general':enctgeneral,
       'location':$scope.singleencounter.location,
-      'monsters':monsters
+      'monsters':monsters,
+      'camp_id':campid
     });
     $scope.campencounters.push(enctid);
 
@@ -190,7 +193,8 @@ angular.module('dm')
     for (i = 0; i < monsters.length; i++) {
        var monsterencounter = {
        'mon_id':monsters[i].mon_id, 
-       'enc_id':enctid 
+       'enc_id':enctid,
+       'quantity':monsters.length;
       };
       $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
     }
@@ -219,7 +223,8 @@ angular.module('dm')
   $scope.campaigncomplete = true;
 
   var campaign = {
-    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
+    // 'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
+    'camp_id' : campid,
     'general' : $scope.campaigngeneraljson,
     'encounters' : $scope.campencounters
   }
