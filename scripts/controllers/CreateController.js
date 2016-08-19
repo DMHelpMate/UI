@@ -232,7 +232,8 @@ angular.module('dm')
     'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
     'general' : $scope.campaigngeneraljson,
     'encounters' : $scope.campencounters
-  }
+    }
+    console.log('camp id: '+localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name)
     var data = campaign;
     $http.post('http://api.unicornrampage.com/campaigns', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
       console.log('success');
