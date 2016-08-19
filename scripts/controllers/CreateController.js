@@ -199,6 +199,8 @@ angular.module('dm')
       $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
     }
 
+    $scope.enctrmonsters = [];
+    $scope.viewmonsters = [];
     $scope.singleencounter = {};
     $scope.campaigncomplete = false;
   };
