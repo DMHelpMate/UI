@@ -44,6 +44,13 @@ angular.module('dm')
     $scope.campaigngeneraljson.author = this.campauthor;
     $scope.campaigngeneraljson.theme = this.camptheme;
     $scope.campaigngeneraljson.description = this.campdisc;
+
+    var campidfirst = {'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name};
+    var data = campidfirst;
+    $http.post('http://api.unicornrampage.com/campaigns', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('success');
+    });
+
     //Hide the input form and show the results
     $scope.showgeneralinfo = false;
     $scope.addgenralinfo = true;
@@ -228,14 +235,14 @@ angular.module('dm')
   $scope.campaigncomplete = true;
   
   $scope.createcampaign = function() {
+    var id = localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name;
     var campaign = {
-    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
+    // 'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
     'general' : $scope.campaigngeneraljson,
     'encounters' : $scope.campencounters
     }
-    console.log('camp id: '+localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name)
     var data = campaign;
-    $http.post('http://api.unicornrampage.com/campaigns', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+    $http.put('http://api.unicornrampage.com/campaigns?camp_id='+id, data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
       console.log('success');
     });
   }
