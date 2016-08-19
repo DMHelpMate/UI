@@ -156,7 +156,7 @@ angular.module('dm')
 
 
 //Creating ENCOUNTERS JSON object for a new Campaign
-	$scope.encountersjson = [];
+	$scope.encountersjson = {};
   $scope.encountersview = [];
   $scope.campencounters = [];
   $scope.singleencounter = {};
@@ -179,26 +179,29 @@ angular.module('dm')
       'readaloud':$scope.singleencounter.readaloud
     };
 
-    $scope.encountersjson.push({
+    $scope.encountersjson = {
       'enc_id':enctid,
       'general':enctgeneral,
       'location':$scope.singleencounter.location,
       'monsters':monsters,
       'camp_id':campid
-    });
+    };
     $scope.campencounters.push(enctid);
 
     var data = $scope.encountersjson;
-    $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}});
-    for (i = 0; i < monsters.length; i++) {
-       var monsterencounter = {
-       'mon_id':monsters[i].mon_id, 
-       'enc_id':enctid,
-       'quantity':monsters.length
-      };
-      $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
-    }
+    $http.post('http://api.unicornrampage.com/encounters', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
+      console.log('encounters.success');
+      for (i = 0; i < monsters.length; i++) {
+         var monsterencounter = {
+         'mon_id':monsters[i].mon_id, 
+         'enc_id':enctid,
+         'quantity':monsters.length
+        };
+        $http.post('http://api.unicornrampage.com/monsters_encounters', monsterencounter, {headers:{'Content-Type': 'application/json'}});
+      }
+    });
 
+    $scope.encountersjson = {};
     $scope.enctrmonsters = [];
     $scope.viewmonsters = [];
     $scope.singleencounter = {};
@@ -223,14 +226,13 @@ angular.module('dm')
 
   //CREATION OF THE CAMPAIGN JSON OBJECT
   $scope.campaigncomplete = true;
-
-  var campaign = {
-    // 'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
-    'camp_id' : campid,
+  
+  $scope.createcampaign = function() {
+    var campaign = {
+    'camp_id' : localStorage.getItem('user-hash')+'_'+$scope.campaigngeneraljson.name,
     'general' : $scope.campaigngeneraljson,
     'encounters' : $scope.campencounters
   }
-  $scope.createcampaign = function() {
     var data = campaign;
     $http.post('http://api.unicornrampage.com/campaigns', data, {headers:{'Content-Type': 'application/json'}}).success(function (data) {
       console.log('success');
